@@ -33,7 +33,7 @@ let app = new Vue({
       for (let num of dataList) {
         sum += (num - mean) * (num - mean)
       }
-      return dataList.length > 1 ? Math.sqrt (sum / (dataList.length - 1)).toFixed(8) : null
+      return dataList.length > 1 ? Math.sqrt (sum / (dataList.length - 1)).toFixed(4) : null
     },
     calculate: function() {
       for (let tableData of this.filedata) {
