@@ -13,9 +13,20 @@
         <input id="inputFile" type="file" multiple="multiple" v-on:change="fileChangeHandler">
       </label>
     </p>
-    <ul id="error">
-      <li v-for="msg in errorMsg">{{ msg }}</li>
+
+    <!-- Show error message here -->
+    <ul id="error" v-if="errorFileList.length > 0">
+      <li v-for="file in errorFileList">"{{ file.fileName }}"{{ file.msg }}</li>
     </ul>
+    
+    <!-- allow user clear error message -->
+    <p v-if="errorFileList.length > 0">
+      <label class="abutton">
+        Clear All Error Message
+        <input type="button" v-on:click="clearErrorMsg">
+      </label>
+    </p>
+    
     <table v-for="tableData in filedata">
       <tr><td>{{ tableData.fileName }}</td></tr>
       <tr v-for="row in tableData.dataList"><td>{{ row }}</td></tr>

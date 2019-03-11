@@ -5,7 +5,7 @@ let app = new Vue({
     filedata: [
     ],
     result: [],
-    errorMsg: []
+    errorFileList: []
   },
   methods: {
     fileChangeHandler: function (event) {
@@ -13,13 +13,27 @@ let app = new Vue({
       "use strict" 
       Object.keys(event.target.files).forEach(i => {
         const file = event.target.files[i];
+        for (let uploaded of self.filedata) {
+          if (file.name == uploaded.fileName) {
+            self.errorFileList.push({fileName: file.name, msg: ' has already been uploaded.'});
+            return
+          }
+        }
+
+        for (let uploaded of self.errorFileList) {
+          if (file.name == uploaded.fileName) {
+            self.errorFileList.push({fileName: file.name, msg: ' has already been uploaded.'});
+            return
+          }
+        }
+
         const reader = new FileReader();
         reader.onload = (event) => {
           let data = event.target.result.trim().split(/[\r\n \t]+/);
           for(let j of data) {
             if (isNaN(j)) {
-              self.errorMsg.push(file.name + ' is not a valid data file');
-              return;
+              self.errorFileList.push({fileName: file.name, msg: ' is not a valid data file.',});
+              return
             }
           }
           self.filedata.push({fileName: file.name, dataList: data})
@@ -28,6 +42,7 @@ let app = new Vue({
         reader.readAsText(file);
       })
     },
+    clearErrorMsg: function(){this.errorFileList = []},
     calculateMean: dataList => {
       let total = 0;
       for (let num of dataList) {
