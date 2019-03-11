@@ -9,10 +9,13 @@
 
     <p>
       <label class="abutton">
-        Read File
+        Load Data File
         <input id="inputFile" type="file" multiple="multiple" v-on:change="fileChangeHandler">
       </label>
     </p>
+    <ul id="error">
+      <li v-for="msg in errorMsg">{{ msg }}</li>
+    </ul>
     <table v-for="tableData in filedata">
       <tr><td>{{ tableData.fileName }}</td></tr>
       <tr v-for="row in tableData.dataList"><td>{{ row }}</td></tr>

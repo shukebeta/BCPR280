@@ -4,7 +4,8 @@ let app = new Vue({
     message: 'hello, vue',
     filedata: [
     ],
-    result:[]
+    result: [],
+    errorMsg: []
   },
   methods: {
     fileChangeHandler: function (event) {
@@ -15,6 +16,12 @@ let app = new Vue({
         const reader = new FileReader();
         reader.onload = (event) => {
           let data = event.target.result.trim().split(/[\r\n \t]+/);
+          for(let j of data) {
+            if (isNaN(j)) {
+              self.errorMsg.push(file.name + ' is not a valid data file');
+              return;
+            }
+          }
           self.filedata.push({fileName: file.name, dataList: data})
           console.log(self.filedata)
         }

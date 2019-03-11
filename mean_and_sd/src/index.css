@@ -31,3 +31,7 @@ div#result {
   z-index: -1;
   opacity: 0;
 }
+
+#error {
+  color: red;
+}
