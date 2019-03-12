@@ -15,14 +15,14 @@
     </p>
 
     <!-- Show error message here -->
-    <ul id="error" v-if="errorFileList.length > 0">
+    <ul id="error" v-if="errorFileList.length">
       <li v-for="file in errorFileList">"{{ file.fileName }}"{{ file.msg }}</li>
     </ul>
     
     <!-- allow user clear error message -->
-    <p v-if="errorFileList.length > 0">
+    <p v-if="errorFileList.length">
       <label class="abutton">
-        Clear All Error Message
+        Clear Error Messages
         <input type="button" v-on:click="clearErrorMsg">
       </label>
     </p>
@@ -32,8 +32,8 @@
       <tr v-for="row in tableData.dataList"><td>{{ row }}</td></tr>
     </table>
 
-    <div v-if="filedata.length > 0" id="result">
-      <label class="abutton" v-if="filedata.length > 0">
+    <div v-if="filedata.length" id="result">
+      <label class="abutton">
         Calculate Standard Deviation
         <input type="button" v-on:click="calculate">
       </label>
