@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <div id="app">
+
+    <p>
+      <label class="abutton">
+        Load Data File
+        <input id="inputFile" type="file" multiple="multiple" v-on:change="fileChangeHandler">
+      </label>
+    </p>
+
+    <!-- Show error message here -->
+    <ul id="error" v-if="errorFileList.length">
+      <li v-for="file in errorFileList" :key="file.fileName">"{{ file.fileName }}"{{ file.msg }}</li>
+    </ul>
+    
+    <!-- allow user clear error message -->
+    <p v-if="errorFileList.length">
+      <label class="abutton">
+        Clear Error Messages
+        <input type="button" v-on:click="clearErrorMsg">
+      </label>
+    </p>
+    
+    <table v-for="tableData in filedata">
+      <tr><td>{{ tableData.fileName }}</td></tr>
+      <tr v-for="row in tableData.dataList"><td>{{ row }}</td></tr>
+    </table>
+
+    <div v-if="filedata.length" id="result">
+      <label class="abutton">
+        Calculate Standard Deviation
+        <input type="button" v-on:click="calculate">
+      </label>
+      <div v-if="result.length">
+        <h2>Result:</h2>
+        <table>
+          <tr><td>File Name</td><td>Mean</td><td>Standard Deviation</td></tr>
+          <tr v-for="tableData in result">
+            <td>{{ tableData.fileName }}</td>
+            <td>{{ tableData.mean }}</td>
+            <td>{{ tableData.standardDeviation }}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>
+
