@@ -16,7 +16,7 @@
 
     <!-- Show error message here -->
     <ul id="error" v-if="errorFileList.length">
-      <li v-for="file in errorFileList">"{{ file.fileName }}"{{ file.msg }}</li>
+      <li v-for="file in errorFileList" :key="file.fileName">"{{ file.fileName }}"{{ file.msg }}</li>
     </ul>
     
     <!-- allow user clear error message -->
