@@ -234,19 +234,18 @@ class Robot {
     /*
      * header comment 14 here
     */
-    while(1) {
-      this.turnToFood();
-      if (!this.isBlockedByBlock() && !this.isBlockedByFood()) {
-        this.move();
-      }
-
-      if (this.isBlockedByFood()) {
-        alert('My favorite Food! Yummy!')
-        this.myWorld.deleteThing(this.ahead())
-        this.deactivate()
-        break;
-      }
+    
+    while(!this.isBlockedByFood()) {
+      this.turnToFood()
+      while (this.isBlockedByBlock()) {
+        this.turnLeft()
+      } 
+      this.move()
+      console.log(this.pos.x + ':' + this.pos.y)
     }
+    alert('My favorite Food! Yummy!')
+    this.myWorld.deleteThing(this.ahead())
+    this.deactivate()
   }
   go () {
     // replace the message with appropriate code!
@@ -277,6 +276,7 @@ class Robot {
     // block comment #1 here
     if (someThing != null) {
       if (someThing.type === 'block') {
+        console.log('blocked')
         result = true
       }
     }
@@ -387,11 +387,16 @@ class Robot {
 
     this.myWorld.paintRobot()
   }
+
+  // if turnToFood can be blocked, do nothing
   turnToFood () {
+    let cface = this.facing
     while(!this.sniff()) {
       this.turnLeft();
     }
-    console.log('Turn to food: Done!')
+    if (this.isBlockedByBlock()) {
+      this.facing = cface
+    }
   }
 
 }
