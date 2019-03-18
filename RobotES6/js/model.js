@@ -1,3 +1,7 @@
+
+/**
+ * Vector: a vector is a position
+ */
 class Vector {
   constructor (x, y) {
     this.x = x
@@ -5,6 +9,9 @@ class Vector {
   }
 }
 
+/**
+ * World: The game environment
+ */
 class World {
   constructor (plan) {
     this.allMyThings = []
@@ -198,15 +205,19 @@ class World {
   }
 }
 
+/**
+ * The Robot object
+ */
 class Robot {
   constructor (theWorld) {
     this.myWorld = theWorld
     this.type = 'robot'
   }
   ahead () {
-    /*
-      header comment 2 here
-    */
+    /**
+     * header comment 2 here
+     * check the direction and get the position ahead of the robot
+     */
     var x, y
     x = this.pos.x
     y = this.pos.y
@@ -231,9 +242,10 @@ class Robot {
     this.myWorld.deactivate()
   }
   eat () {
-    /*
+    /**
      * header comment 14 here
-    */
+     * turnToFood then move until meet the food
+     */
     
     while(!this.isBlockedByFood()) {
       this.turnToFood()
@@ -241,7 +253,6 @@ class Robot {
         this.turnLeft()
       } 
       this.move()
-      console.log(this.pos.x + ':' + this.pos.y)
     }
     alert('My favorite Food! Yummy!')
     this.myWorld.deleteThing(this.ahead())
@@ -266,14 +277,16 @@ class Robot {
     return this.look() != null
   }
   isBlockedByBlock () {
-    /*
-      header comment 4 here
-    */
+    /**
+     * header comment 4 here 
+     * check if the robot is blocked by the block
+     */
     var result, someThing
     result = false
     someThing = this.look()
 
     // block comment #1 here
+    // check the type of someThing
     if (someThing != null) {
       if (someThing.type === 'block') {
         console.log('blocked')
@@ -283,9 +296,11 @@ class Robot {
     return result
   }
   isBlockedByFood () {
-    /*
-      header comment 5 here
-    */
+    /**
+     * header comment 5 here
+     * check if the robot is blocked by the block
+     */
+
     var result, someThing
     result = false
     someThing = this.look()
@@ -304,16 +319,18 @@ class Robot {
     return this.active === true
   }
   look () {
-  /*
-    header comment 13 here
-  */
+    /**
+     * header comment 13 here
+     * according to the position, get the thing ahead of the robot
+     */
     return this.myWorld.whatIsAt(this.ahead())
   }
   sleep (d) {
-    for (var t = Date.now(); Date.now() - t <= d;) {}
+    //for (var t = Date.now(); Date.now() - t <= d;) {}
   }
   move () {
     // block comment #2 here
+    // if no block, go ahead
     if (this.active && this.isBlocked() === false) {
       this.lastPosition = this.pos
 
@@ -324,6 +341,7 @@ class Robot {
       stepCount.innerHTML = count
     } else {
       // block comment #3 here
+      // the robot is blocked by something....can not move
       this.deactivate()
     }
     this.myWorld.paintRobot()
@@ -337,6 +355,7 @@ class Robot {
   sniff () {
   /*
     header comment 8 here
+    according the relative position, judge if the robot is facing the food
   */
     var result = false
     if (this.facing === 1) {
@@ -361,6 +380,7 @@ class Robot {
   turnLeft () {
   /*
     header comment 9 here
+    changing the facing attribute is changing the direction
   */
     var newFacing
     if (this.active) {
@@ -375,6 +395,7 @@ class Robot {
   turnRight () {
   /*
     header comment 10 here
+    changing the facing attribute is changing the direction
   */
     var newFacing
     if (this.active) {
