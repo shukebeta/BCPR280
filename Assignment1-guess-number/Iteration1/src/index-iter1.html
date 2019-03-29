@@ -15,21 +15,22 @@
     </p>
 
     <div v-if="secretNumber >= 0">
-    <p>I have got a number which is between 0 and 99, what is it? </p>
-    <p v-if="promptMessage != ''">{{ promptMessage }}</p>
+    <p>I have got a number in mind which is between 0 and 99, what is it? </p>
+    <p id="prompt-message" v-if="promptMessage != ''">{{ promptMessage }}</p>
     <p><input 
       v-model="yourCurrentGuess" 
       v-on:keyup.enter="submitYourInput" 
       ref="input" type="text" size="40" placeholder="Please input your guess then press enter"></p>
     </div>
     <!-- Show player guess history -->
-    <ul id="error" v-if="guessHistory.length">
+    <ul v-if="guessHistory.length">
       <li v-for="guess in guessHistory" :key="guess.try_count"> the {{guess.tryCount}} try, you guessed {{ guess.number }}</li>
     </ul>
 
   </div>
 
-  <script src="index.js"></script>
+  <script src="model.js"></script>
+  <script src="controller.js"></script>
 </body>
 </html>
 
