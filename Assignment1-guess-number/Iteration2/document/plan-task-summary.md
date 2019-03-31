@@ -1,6 +1,6 @@
-# Planning Summary for Iteration 1
+# Planning Summary for Iteration 2
 
-## Goal of iteration one
+## Goal of iteration two
 
 <table>
 <tr><td>Guess A Number</td><td>Iteration 1</td></tr>
@@ -12,7 +12,10 @@
   <ol>
     <li>The program shall generate a random number between 0 and 99.</li> 
 		<li>The USER can input his / her guess.</li>
-		<li>The program shall response with "Try higher", "Try lower" or 
+		<li>the program shall response with "COLD" if the guess is more than or equal 40 from the target number</li>
+		<li>the program shall response with "COOL" if the guess is within 20-39 of the target number</li>
+		<li>the program shall response with “WARM” if the guess is within 10-19 of the target number</li>
+    <li>the program shall response with “HOT” if the guess is within 1-9 of the target number</li>
     <li>If the guess is correct, the program shall response with "You got it in n trials". </li>
   </ol>
 </td>
@@ -59,11 +62,11 @@ Five classmates will be invited to test this application. All of them should com
 
 | Date  | Start | Estimate Time | Phase      | Comment |
 | :-----: | :-----: | :----------: | ---------- | ------- |
-| 30-03 | 08:00 | 30 | Planning   | What is the reqirement?  <br />What is the output? etc |
-| 30-03 | 08:45 | 30 | Design     | How should the interface be?<br />How many objects are there in the game? |
-| 30-03 | 09:30 | 60    | Coding    |         |
-| 30-03 | 13:00 |  30    | Testing    |         |
-| 30-03 | 14:00 |  30     | Postmortem |         |
+| 31-03 | 10:00 | 10 | Planning   | What is the reqirement?  <br />What is the output? etc |
+| 31-03 | 10:20 | 10 | Design     | How should the interface be?<br />How many objects are there in the game? |
+| 31-03 | 10:35 | 20   | Coding    |         |
+| 31-03 | 11:00 |  10   | Testing    |         |
+| 31-03 | 11:20 |  10     | Postmortem |         |
 
 ## A record of the actual time each task took
 
@@ -71,14 +74,13 @@ Five classmates will be invited to test this application. All of them should com
 | ---------- | ---------- | -------- | ------- |
 | Instructor | Luofeng Xu | Program# | BCPR280 |
 
-| Date  | Start | Stop  | Interrupt Time | Delta Time | Phase      | Comment                 |
-| ----- | ----- | ----- | -------------- | ---------- | ---------- | ----------------------- |
-| 30-03 | 8:00  | 8:30  | 1              | 20         | Planning   | a unexpected phone call |
-| 30-03 | 8:40  | 9:00  |                | 20         | Design     |                         |
-| 30-03 | 9:10  | 9:40  |                | 30         | Coding     |                         |
-| 30-03 | 10:00 | 10:30 |                | 30         | Testing    |                         |
-| 30-03 | 11:00 | 11:30 |                | 30         | Postmortem |                         |
-|       |       |       |                |            |            |                         |
+| Date  | Start | Stop  | Interrupt Time | Delta Time | Phase      | Comment |
+| ----- | ----- | ----- | -------------- | ---------- | ---------- | ------- |
+| 30-03 | 10:00 | 10:15 |                | 15         | Planning   |         |
+| 30-03 | 10:20 | 10:30 |                | 10         | Design     |         |
+| 30-03 | 10:35 | 10:45 |                | 10         | Coding     |         |
+| 30-03 | 11:00 | 10:10 |                | 10         | Testing    |         |
+| 30-03 | 11:20 | 11:30 |                | 10         | Postmortem |         |
 
 
 
