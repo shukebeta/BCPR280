@@ -73,9 +73,9 @@ Five classmates will be invited to test this application. All of them should com
 
 | Date  | Start | Stop  | Interrupt Time | Delta Time | Phase      | Comment                 |
 | ----- | ----- | ----- | -------------- | ---------- | ---------- | ----------------------- |
-| 30-03 | 8:00  | 8:30  | 1              | 20         | Planning   | a unexpected phone call |
-| 30-03 | 8:40  | 9:00  |                | 20         | Design     |                         |
-| 30-03 | 9:10  | 9:40  |                | 30         | Coding     |                         |
+| 30-03 | 8:00  | 08:30 | 1              | 20         | Planning   | a unexpected phone call |
+| 30-03 | 8:40  | 09:00 |                | 20         | Design     |                         |
+| 30-03 | 9:10  | 09:40 |                | 30         | Coding     |                         |
 | 30-03 | 10:00 | 10:30 |                | 30         | Testing    |                         |
 | 30-03 | 11:00 | 11:30 |                | 30         | Postmortem |                         |
 |       |       |       |                |            |            |                         |

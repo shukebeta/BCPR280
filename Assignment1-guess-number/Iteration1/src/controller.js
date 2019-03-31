@@ -15,6 +15,7 @@ let app = new Vue({
       setTimeout(() => {
         this.currentGame = new Guess();
         this.secretNumber = this.currentGame.secretNumber;
+        this.startMessage = 'Restart'
         this.promptMessage = ''
         this.guessHistory = []
         this.tryCount = 0
@@ -23,9 +24,8 @@ let app = new Vue({
       
     },
     submitYourInput: function() {
-      this.startMessage = 'Restart'
       this.promptMessage = this.currentGame.makeGuess(this.yourCurrentGuess);
-      if (this.promptMessage.startsWith("You got it!")) {
+      if (this.promptMessage.startsWith("You got it")) {
         this.startMessage = 'Start'
       }
 
