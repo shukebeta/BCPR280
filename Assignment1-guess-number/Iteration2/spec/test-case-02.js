@@ -3,7 +3,7 @@ describe("make a guess", function () {
   describe("generate a secret number", function () {
       var theGuessObject;
       beforeEach(function () {
-          theGuessObject = new Guess(42);
+          theGuessObject = new Guess2(42);
       });
 
       it("the secretNumber should be 42", function () {

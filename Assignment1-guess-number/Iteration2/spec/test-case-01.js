@@ -4,7 +4,7 @@ describe("Basic Check For Original Source Code", function () {
   describe("Guess", function () {
       var theGuessObject;
       beforeEach(function () {
-        theGuessObject = new Guess();
+        theGuessObject = new Guess2();
       });
 
       describe("the secretNumber property", function () {
