@@ -1,4 +1,4 @@
-class Guess2 extends Guess {
+class GuessExtended extends Guess {
 
   constructor(aNumber) {
     super(aNumber)
