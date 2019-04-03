@@ -1,1 +1,0 @@
-As the design is so simple, no defects found.
