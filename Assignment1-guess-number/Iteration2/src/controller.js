@@ -12,7 +12,7 @@ let app = new Vue({
   },
   methods: {
     startGame: function (event) {
-      this.currentGame = new Guess()
+      this.currentGame = new GuessExtended()
       this.secretNumber = this.currentGame.secretNumber
       this.startMessage = 'Restart'
       this.promptMessage = ''
