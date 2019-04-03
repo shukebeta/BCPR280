@@ -1,23 +1,22 @@
 class Guess {
-
-  constructor(secretNumber) {
+  constructor (secretNumber) {
     if (this.isValidNumber(secretNumber)) {
       this.secretNumber = secretNumber
     } else {
       this.secretNumber = Math.floor(Math.random() * 100)
     }
-    this.tryCount = 0;
+    this.tryCount = 0
   }
 
-  isValidNumber(secretNumber) {
-    return (typeof secretNumber !== 'undefined' && 
-      Number.isInteger(secretNumber) && 
-      secretNumber >=0 && 
+  isValidNumber (secretNumber) {
+    return (typeof secretNumber !== 'undefined' &&
+      Number.isInteger(secretNumber) &&
+      secretNumber >= 0 &&
       secretNumber <= 99
     )
   }
 
-  makeGuess(aGuess) {
+  makeGuess (aGuess) {
     this.tryCount++
     let result = ''
     if (aGuess > this.secretNumber) {

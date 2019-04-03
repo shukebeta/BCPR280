@@ -1,10 +1,9 @@
 class GuessExtended extends Guess {
-
-  constructor(aNumber) {
+  constructor (aNumber) {
     super(aNumber)
   }
 
-  makeGuess(aGuess) {
+  makeGuess (aGuess) {
     this.tryCount++
     let result = ''
     let deviation = Math.abs(aGuess - this.secretNumber)
@@ -14,7 +13,7 @@ class GuessExtended extends Guess {
       result = 'COOL'
     } else if (deviation >= 10 && deviation <= 19) {
       result = 'WARM'
-    }  else if (deviation >= 1 && deviation <= 9) {
+    } else if (deviation >= 1 && deviation <= 9) {
       result = 'HOT'
     } else {
       result = `You got it in ${this.tryCount} trials!`

@@ -11,16 +11,16 @@ let app = new Vue({
     currentGame: null
   },
   methods: {
-    startGame: function (event) {      
-      this.currentGame = new Guess();
-      this.secretNumber = this.currentGame.secretNumber;
+    startGame: function (event) {
+      this.currentGame = new Guess()
+      this.secretNumber = this.currentGame.secretNumber
       this.startMessage = 'Restart'
       this.promptMessage = ''
       this.guessHistory = []
       this.tryCount = 0
       this.$nextTick(() => this.$refs.input.focus())
     },
-    submitYourInput: function() {
+    submitYourInput: function () {
       this.yourCurrentGuess = +this.yourCurrentGuess
       if (Number.isInteger(this.yourCurrentGuess)) {
         if (!this.currentGame.isValidNumber(this.yourCurrentGuess)) {
@@ -34,13 +34,13 @@ let app = new Vue({
         return
       }
 
-      this.promptMessage = this.currentGame.makeGuess(this.yourCurrentGuess);
-      if (this.promptMessage.startsWith("You got it")) {
+      this.promptMessage = this.currentGame.makeGuess(this.yourCurrentGuess)
+      if (this.promptMessage.startsWith('You got it')) {
         this.startMessage = 'Start'
       }
 
-      this.guessHistory.push({tryCount: this.currentGame.tryCount, number: this.yourCurrentGuess})
+      this.guessHistory.push({ tryCount: this.currentGame.tryCount, number: this.yourCurrentGuess })
       this.yourCurrentGuess = ''
     }
   }
-});
+})
