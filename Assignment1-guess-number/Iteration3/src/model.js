@@ -41,16 +41,22 @@ class Computer {
   }
 
   getComplainMessage(guess, result) {
+    if (guess == 0 && result == 'Try lower') {
+      return `You lied. I guess ${guess}, but you told me ${result}. I cannot ${result}!`
+    }
+
+    if (guess == 99 && result == 'Try higher') {
+      return `You lied. I guess ${guess}, but you told me ${result}. I cannot ${result}!`
+    }
+
     if(this.guessMin == this.guessMax && guess == this.guessMin && result != "correct") {
       return `You lied. The number is ${guess} but you say it is not.`
     }
 
-    if (guess == 0 && result == 'Try lower') {
-      return `You lied. I guess ${guess}, but you told me Try lower. I cannot try lower!`
-    }
-
-    if (guess == 99 && result == 'Try higher') {
-      return `You lied. I guess ${guess}, but you told me Try Higher. I cannot try higher!`
+    for(let aGuess of this.guessHistory) {
+      if (aGuess.guess == guess) {
+        return `You lied. It is ${guess}. Last time I guess ${guess} and you told me ${aGuess.result}.`
+      }
     }
 
     return ''

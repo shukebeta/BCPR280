@@ -33,7 +33,7 @@ let app = new Vue({
         if (judgeMessage == "correct") {
           this.currentGame.result = judgeMessage
           this.startMessage = 'Start'
-        }
+        } 
       }
     }
   }

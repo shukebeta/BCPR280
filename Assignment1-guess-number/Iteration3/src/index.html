@@ -16,21 +16,21 @@
 
     <p>I have got a number in mind which is between 0 and 99, what is it? </p>
 
-    <p v-if="Number.isInteger(currentGuess)">Computer: It is <span>{{ currentGuess }}</span></p>
-    <p>
-      <button v-on:click="judgeComputer('Try higher')">Try higer</button>
-      <button v-on:click="judgeComputer('Try lower')">Try Lower</button>
-      <button v-on:click="judgeComputer('correct')">correct</button>
-    </p>
-    <!-- Show computer guess history -->
-    <ul v-if="currentGame != null">
-      <li v-for="guess in currentGame.guessHistory" :key="guess.try_count"> the {{guess.tryCount}} try, I guessed {{ guess.guess }}, you told me: {{ guess.result }}.</li>
-    </ul>
-
+    <div v-if="Number.isInteger(currentGuess)">
+      <p>Computer: It is <span>{{ currentGuess }}</span></p>
+      <p>
+        <button v-on:click="judgeComputer('Try higher')">Try higer</button>
+        <button v-on:click="judgeComputer('Try lower')">Try Lower</button>
+        <button v-on:click="judgeComputer('correct')">correct</button>
+      </p>
+      <!-- Show computer guess history -->
+      <ul v-if="currentGame != null">
+        <li v-for="guess in currentGame.guessHistory" :key="guess.try_count"> the {{guess.tryCount}} try, I guessed {{ guess.guess }}, you told me: {{ guess.result }}.</li>
+      </ul>
+    </div>
   </div>
 
   <script src="model.js"></script>
   <script src="controller.js"></script>
 </body>
 </html>
-
