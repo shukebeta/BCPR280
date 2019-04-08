@@ -32,7 +32,12 @@
           I guessed {{ guess.guess }}, 
           you told me: {{ guess.result }}.
           <span v-if="guess.result != 'correct'">
-            I'm sure I can guess the number within {{ guess.times }} times. 
+            <span v-if="guess.times > 0">
+              I'm sure I can guess the number within {{ guess.times }} times. 
+            </span>
+            <span v-else>
+              You lied. 
+            </span>
           </span>
         </li>
       </ul>
