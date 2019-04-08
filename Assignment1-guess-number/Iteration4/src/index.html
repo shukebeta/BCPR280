@@ -30,12 +30,17 @@
         <li v-for="guess in currentGame.guessHistory" :key="guess.try_count"> 
           the {{guess.tryCount}} try, 
           I guessed {{ guess.guess }}, 
-          you told me: {{ guess.result }}. So target number ranger is {{ guess.range.min }} to {{ guess.range.max }}</li>
+          you told me: {{ guess.result }}.
+          <span v-if="guess.result != 'correct'">
+            I'm sure I can guess the number within {{ guess.times }} times. 
+          </span>
+        </li>
       </ul>
     </div>
   </div>
 
-  <script src="model.js"></script>
+  <script src="array.util.js"></script>
+  <script src="Computer.js"></script>
   <script src="controller.js"></script>
 </body>
 </html>
