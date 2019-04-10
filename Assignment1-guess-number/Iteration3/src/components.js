@@ -1,4 +1,4 @@
-Vue.component("guess-history",{
+Vue.component('guess-history', {
   props: ['history'],
   template: `
   <div v-if="history.length > 0">
@@ -21,7 +21,7 @@ Vue.component("guess-history",{
   </div>
   `,
   methods: {
-    number2ordinal: function(number) {
+    number2ordinal: function (number) {
       number = +number
       let reminder = number % 10
       switch (reminder) {
@@ -36,12 +36,12 @@ Vue.component("guess-history",{
           }
           break
         case 3:
-        if (number !== 13) {
-          return number + 'rd'
-        }
-        break
+          if (number !== 13) {
+            return number + 'rd'
+          }
+          break
       }
-      return number +'th'
+      return number + 'th'
     }
   }
 })
