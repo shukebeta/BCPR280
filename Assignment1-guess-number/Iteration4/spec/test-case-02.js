@@ -7,14 +7,45 @@ describe("make a guess", function () {
     })
 
     it("mankind lied", function () {
-      let guess = 40
-      npc.refineCandidateList(guess, 'HOT')
-      guess = 42
+      let npc = new ComputerExtended()
+      let guess = 0
+      npc.refineCandidateList(guess, 'COLD')
+      guess = 99
+      npc.refineCandidateList(guess, 'COLD')
+      guess = 50
       npc.refineCandidateList(guess, 'COLD')
       expect(npc.isMankindLying()).toBe(true)
     })
 
+    it("mankind lied", function () {
+      let npc = new ComputerExtended()
+      let guess = 0
+      npc.refineCandidateList(guess, 'WARM')
+      guess = 99
+      npc.refineCandidateList(guess, 'WARM')
+      expect(npc.isMankindLying()).toBe(true)
+    })
+
+    it("mankind lied", function () {
+      let npc = new ComputerExtended()
+      let guess = 0
+      npc.refineCandidateList(guess, 'COOL')
+      guess = 99
+      npc.refineCandidateList(guess, 'COOL')
+      expect(npc.isMankindLying()).toBe(true)
+    })
+
+    it("mankind lied", function () {
+      let npc = new ComputerExtended()
+      let guess = 0
+      npc.refineCandidateList(guess, 'HOT')
+      guess = 99
+      npc.refineCandidateList(guess, 'HOT')
+      expect(npc.isMankindLying()).toBe(true)
+    })
+
     it("tryCount should be increased after getGuess", function () {
+      let npc = new ComputerExtended()
       expect(npc.tryCount == 0).toBe(true)
       npc.getGuess()
       expect(npc.tryCount == 1).toBe(true)

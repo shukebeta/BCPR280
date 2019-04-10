@@ -1,7 +1,7 @@
 /*
 Write a program to play a number guessing game.
 The USER mentally selects a number between 0 and 99
-and the computer ties to guess it.
+and the computer tries to guess it.
 The computer outputs its guess, and the User response with
   "COLD" if the guess is more than 40 from the target number,
   "COOL" if the guess is within 20-39 of the target number,

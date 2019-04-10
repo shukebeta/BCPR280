@@ -1,6 +1,6 @@
 /*
   Write a program to play a number guessing game.
-  The USER mentally selects a number between 0 and 99 and the computer ties to guess it.
+  The USER mentally selects a number between 0 and 99 and the computer tries to guess it.
   The computer outputs its guess, and the User response with "Try higher", "Try lower" or “correct”.
   The computer should keep count of the number of guesses.
   The computer should complain if the USER has lied.
