@@ -3,38 +3,46 @@ let app = new Vue({
   data: {
     startMessage: 'Start',
     currentGuess: '',
-    currentGame: null
+    npc: new Computer()
   },
   methods: {
-    startGame: function (event) {      
-      this.currentGame = new Computer()
-      this.currentGuess = this.currentGame.getGuess()
+    startGame: function () {      
+      this.npc = new Computer()
+      this.currentGuess = this.npc.getGuess()
       this.startMessage = 'Restart'
     },
-    judgeComputer: function(judgeMessage) {
-      if (this.currentGame.result == "correct") {
-        alert("Computer has won, please click Start to begin another game.")
-        return
+    judgeComputer: function(event) {
+      let judgeMessage = event.target.innerText
+
+      if (this.npc.result == "correct") {
+        return this.npc.celebrate()
       }
 
-      if (this.currentGame.result == "mankind lie") {
-        alert("You lied, please click Start to begin another game.")
-        return
+      if (this.npc.result == "mankind lie") {
+        return this.npc.complain()
+      }
+      
+      if (judgeMessage != 'correct') {
+        this.npc.refineCandidateList(this.currentGuess, judgeMessage);
       }
 
-      let complainMessage = this.currentGame.getComplainMessage(this.currentGuess, judgeMessage)
-      if(complainMessage) {
-        this.startMessage = 'Start'
-        this.currentGame.result = "mankind lie"
-        this.currentGame.complain(complainMessage)
-      } else {
-        this.currentGame.saveGuess(this.currentGuess, judgeMessage)
-        this.currentGuess = this.currentGame.getGuess()
-        if (judgeMessage == "correct") {
-          this.currentGame.result = judgeMessage
-          this.startMessage = 'Start'
-        } 
+      if(this.npc.isMankindLying()) {
+        this._initStartMessage()
+        this.npc.complain()
+      } 
+      
+      this.npc.saveGuess(this.currentGuess, judgeMessage)
+
+      if (judgeMessage == "correct") {
+        this._initStartMessage()
+        this.currentGuess = ''
+        return this.npc.celebrate()
       }
+      
+      this.currentGuess = this.npc.getGuess()
+    },
+    _initStartMessage() {
+      this.startMessage = 'Start'
     }
   }
 });
