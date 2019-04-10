@@ -2,35 +2,45 @@
 describe("Basic Check For Original Source Code", function () {
   'use strict';
   describe("Guess", function () {
-      var theGuessObject;
+      var npc;
       beforeEach(function () {
-        theGuessObject = new Guess();
+        npc = new Computer();
       });
 
-      describe("the secretNumber property", function () {
-        it("should have an .secretNumber property", function () {
-          expect(theGuessObject.hasOwnProperty('secretNumber')).toBeTruthy();
+      describe("the candidateList property", function () {
+        it("should have a candidateList property", function () {
+          expect(npc.hasOwnProperty('candidateList')).toBe(true);
         });
         
-        it("should reference a integer", function () {
-          expect(Number.isInteger(theGuessObject.secretNumber)).toBeTruthy();
-        });
-        
-        it("should be between 0 and 99", function () {
-          expect(theGuessObject.secretNumber >= 0 && theGuessObject.secretNumber <= 99).toBeTruthy();
-        });
-
-        it("101 should not be a valid secret number", function () {
-          expect(theGuessObject.isValidNumber(101)).toBe(false);
+        it("should be an array", function () {
+          expect(Array.isArray(npc.candidateList)).toBe(true);
         });
       });
 
-      it("should have a makeGuess function", function () {
-        expect(typeof theGuessObject.makeGuess).toBe('function');
+      describe("the tryCount property", function () {
+        it("should have a tryCount property", function () {
+          expect(npc.hasOwnProperty('tryCount')).toBe(true);
+        });
+        
+        it("should be an integer", function () {
+          expect(Number.Integer(npc.tryCount)).toBe(true);
+        });
+      });
+
+      it("should have a getGuess function", function () {
+        expect(typeof npc.getGuess).toBe('function');
+      });
+
+      it("should have a refineCandidateList function", function () {
+        expect(typeof npc.refineCandidateList).toBe('function');
+      });
+
+      it("should have a saveGuess function", function () {
+        expect(typeof npc.saveGuess).toBe('function');
       });
 
       it("should have a constructor function", function () {
-        expect(typeof theGuessObject.constructor).toBe('function');
+        expect(typeof npc.constructor).toBe('function');
       });
   });
 });
