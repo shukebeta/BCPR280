@@ -16,9 +16,9 @@ class Computer {
   }
 
   refineCandidateList(guess, result) {
-    if (result == 'Try higher') {
+    if (result === 'Try higher') {
       this.candidateList = this._getList(guess + 1, 99).intersect(this.candidateList)
-    } else if (result == 'Try lower') {
+    } else if (result === 'Try lower') {
       this.candidateList = this._getList(0, guess - 1).intersect(this.candidateList)
     }
   }

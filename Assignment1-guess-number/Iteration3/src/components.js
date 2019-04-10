@@ -8,7 +8,7 @@ Vue.component("guess-history",{
         the {{ number2ordinal(guess.tryCount) }} try, 
         I guessed {{ guess.guess }}, 
         you told me: {{ guess.result }}.
-        <span v-if="guess.result != 'correct'">
+        <span v-if="guess.result !== 'correct'">
           <span v-if="guess.times > 0">
             I'm sure I can guess the number within {{ guess.times }} times. 
           </span>
@@ -26,17 +26,17 @@ Vue.component("guess-history",{
       let reminder = number % 10
       switch (reminder) {
         case 1:
-          if (number != 11) {
+          if (number !== 11) {
             return number + 'st'
           }
           break
         case 2:
-          if (number != 12) {
+          if (number !== 12) {
             return number + 'nd'
           }
           break
         case 3:
-        if (number != 13) {
+        if (number !== 13) {
           return number + 'rd'
         }
         break

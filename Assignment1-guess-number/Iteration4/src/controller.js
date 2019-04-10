@@ -6,43 +6,43 @@ let app = new Vue({
     npc: new ComputerExtended()
   },
   methods: {
-    startGame: function () {      
+    startGame: function () {
       this.npc = new ComputerExtended()
       this.currentGuess = this.npc.getGuess()
       this.startMessage = 'Restart'
     },
-    judgeComputer: function(event) {
+    judgeComputer: function (event) {
       let judgeMessage = event.target.innerText
 
-      if (this.npc.result == "correct") {
+      if (this.npc.result === 'correct') {
         return this.npc.celebrate()
       }
 
-      if (this.npc.result == "mankind lie") {
+      if (this.npc.result === 'mankind lie') {
         return this.npc.complain()
       }
-      
-      if (judgeMessage != 'correct') {
-        this.npc.refineCandidateList(this.currentGuess, judgeMessage);
+
+      if (judgeMessage !== 'correct') {
+        this.npc.refineCandidateList(this.currentGuess, judgeMessage)
       }
 
-      if(this.npc.isMankindLying()) {
+      if (this.npc.isMankindLying()) {
         this._initStartMessage()
         this.npc.complain()
-      } 
-      
+      }
+
       this.npc.saveGuess(this.currentGuess, judgeMessage)
 
-      if (judgeMessage == "correct") {
+      if (judgeMessage === 'correct') {
         this._initStartMessage()
         this.currentGuess = ''
         return this.npc.celebrate()
       }
-      
+
       this.currentGuess = this.npc.getGuess()
     },
-    _initStartMessage() {
+    _initStartMessage () {
       this.startMessage = 'Start'
     }
   }
-});
+})

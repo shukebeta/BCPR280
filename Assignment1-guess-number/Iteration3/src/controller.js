@@ -14,15 +14,15 @@ let app = new Vue({
     judgeComputer: function(event) {
       let judgeMessage = event.target.innerText
 
-      if (this.npc.result == "correct") {
+      if (this.npc.result === "correct") {
         return this.npc.celebrate()
       }
 
-      if (this.npc.result == "mankind lie") {
+      if (this.npc.result === "mankind lie") {
         return this.npc.complain()
       }
       
-      if (judgeMessage != 'correct') {
+      if (judgeMessage !== 'correct') {
         this.npc.refineCandidateList(this.currentGuess, judgeMessage);
       }
 
@@ -33,7 +33,7 @@ let app = new Vue({
       
       this.npc.saveGuess(this.currentGuess, judgeMessage)
 
-      if (judgeMessage == "correct") {
+      if (judgeMessage === "correct") {
         this._initStartMessage()
         this.currentGuess = ''
         return this.npc.celebrate()

@@ -1,41 +1,40 @@
 /*
-  Write a program to play a number guessing game. 
-  The USER mentally selects a number between 0 and 99 and the computer ties to guess it. 
-  The computer outputs its guess, and the User response with "Try higher", "Try lower" or “correct”. 
-  The computer should keep count of the number of guesses. 
+  Write a program to play a number guessing game.
+  The USER mentally selects a number between 0 and 99 and the computer ties to guess it.
+  The computer outputs its guess, and the User response with "Try higher", "Try lower" or “correct”.
+  The computer should keep count of the number of guesses.
   The computer should complain if the USER has lied.
 */
 
 class Computer {
-
-  constructor() {
+  constructor () {
     this.tryCount = 0
     this.guessHistory = []
     this.candidateList = this._getList(0, 99)
     this.result = 'undefined'
   }
 
-  refineCandidateList(guess, result) {
-    if (result == 'Try higher') {
+  refineCandidateList (guess, result) {
+    if (result === 'Try higher') {
       this.candidateList = this._getList(guess + 1, 99).intersect(this.candidateList)
-    } else if (result == 'Try lower') {
+    } else if (result === 'Try lower') {
       this.candidateList = this._getList(0, guess - 1).intersect(this.candidateList)
     }
   }
-  
-  _getList(min, max) {
+
+  _getList (min, max) {
     let result = []
-    for(let i=min; i<=max; i++) {
+    for (let i = min; i <= max; i++) {
       result.push(i)
     }
     return result
   }
 
-  _getRand(min, max) {
+  _getRand (min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min
   }
 
-  saveGuess(guess, result) {
+  saveGuess (guess, result) {
     this.result = result
 
     this.guessHistory.push({
@@ -46,7 +45,7 @@ class Computer {
     })
   }
 
-  getGuess() {
+  getGuess () {
     this.tryCount++
     let index = Math.floor((this.candidateList.length - 1) / 2)
     let guess = this.candidateList[index]
@@ -54,16 +53,16 @@ class Computer {
     return guess
   }
 
-  isMankindLying() {
+  isMankindLying () {
     return this.candidateList.length === 0
   }
 
-  complain() {
+  complain () {
     this.lastResult = 'mankind lie'
-    alert('You lied. Press Start to begin another game.')
+    window.alert('You lied. Press Start to begin another game.')
   }
 
-  celebrate() {
-    alert('I got it. Press Start to begin another game.')
+  celebrate () {
+    window.alert('I got it. Press Start to begin another game.')
   }
 }
