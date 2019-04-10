@@ -1,20 +1,24 @@
 Vue.component("guess-history",{
   props: ['history'],
-  template: `<ul v-if="history.length > 0">
-    <li v-for="guess in history" :key="guess.try_count"> 
-      the {{ number2ordinal(guess.tryCount) }} try, 
-      I guessed {{ guess.guess }}, 
-      you told me: {{ guess.result }}.
-      <span v-if="guess.result != 'correct'">
-        <span v-if="guess.times > 0">
-          I'm sure I can guess the number within {{ guess.times }} times. 
+  template: `
+  <div v-if="history.length > 0">
+    <h2> Computer Guess History: </h2>
+    <ul>
+      <li v-for="guess in history" :key="guess.try_count"> 
+        the {{ number2ordinal(guess.tryCount) }} try, 
+        I guessed {{ guess.guess }}, 
+        you told me: {{ guess.result }}.
+        <span v-if="guess.result != 'correct'">
+          <span v-if="guess.times > 0">
+            I'm sure I can guess the number within {{ guess.times }} times. 
+          </span>
+          <span v-else>
+            You lied. 
+          </span>
         </span>
-        <span v-else>
-          You lied. 
-        </span>
-      </span>
-    </li>
-  </ul>
+      </li>
+    </ul>
+  </div>
   `,
   methods: {
     number2ordinal: function(number) {

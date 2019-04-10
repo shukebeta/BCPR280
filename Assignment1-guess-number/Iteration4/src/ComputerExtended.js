@@ -14,12 +14,13 @@ The computer should complain if the USER has lied.
 class ComputerExtended extends Computer {
 
   getGuess() {
+    this.tryCount++
     let index = this._getRand(0, this.candidateList.length - 1)
     let guess = this.candidateList[index]
     this.candidateList = this.candidateList.diff([guess])
     return guess
   }
-  
+
   refineCandidateList(guess, currentResult) {
     let judgeStandard = {
       COLD: {min: 40, max: 99},
@@ -44,7 +45,6 @@ class ComputerExtended extends Computer {
       cList = cList.concat(this._getList(min, max))
     }
     this.candidateList = this.candidateList.intersect(cList)
-    console.log(this.candidateList)
   }
 
 }

@@ -11,10 +11,7 @@ class Computer {
   constructor() {
     this.tryCount = 0
     this.guessHistory = []
-    
     this.candidateList = this._getList(0, 99)
-    this.triedList = []
-
     this.result = 'undefined'
   }
 
@@ -39,7 +36,6 @@ class Computer {
   }
 
   saveGuess(guess, result) {
-    this.tryCount++
     this.result = result
 
     this.guessHistory.push({
@@ -51,6 +47,7 @@ class Computer {
   }
 
   getGuess() {
+    this.tryCount++
     let index = Math.floor((this.candidateList.length - 1) / 2)
     let guess = this.candidateList[index]
     this.candidateList = this.candidateList.diff([guess])

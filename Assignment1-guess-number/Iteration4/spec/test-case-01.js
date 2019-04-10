@@ -1,10 +1,10 @@
 /*globals describe beforeEach it expect Guess*/
 describe("Basic Check For Original Source Code", function () {
   'use strict';
-  describe("Guess", function () {
+  describe("ComputerExtended", function () {
       var npc;
       beforeEach(function () {
-        npc = new Computer();
+        npc = new ComputerExtended();
       });
 
       describe("the candidateList property", function () {
@@ -23,7 +23,7 @@ describe("Basic Check For Original Source Code", function () {
         });
         
         it("should be an integer", function () {
-          expect(Number.Integer(npc.tryCount)).toBe(true);
+          expect(Number.isInteger(npc.tryCount)).toBe(true);
         });
       });
 
