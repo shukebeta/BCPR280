@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <!-- VIEW -->
+    <ul id="greetings">
+      <li v-for="(person, index) in people">
+        {{ getGreeting(index) }} {{ person.greet() }}
+      </li>
+    </ul>
+    <script src="demo.js"></script>
+  </body>
+</html>

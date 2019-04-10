@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <title>Square Calculation</title>
+  <link rel="stylesheet" href="square-calculation.css">
+</head>
+<body>
+  <h1>Square Calculation</h1>
+  <div id="square-calculation">
+      <button type="button" v-on:click="calculateSquare">Calculate</button>
+      <div>
+        <table>
+        <tr><td>Number</td><td>Square of Left Number</td></tr>
+        <tr v-for="aNumber in allMyNumbers"><td>{{ aNumber.val }}</td><td>{{ aNumber.square }}</td></tr>
+      </table>
+    </div>
+  </div>
+  <script src="controller.js"></script>
+</body>
+</html>

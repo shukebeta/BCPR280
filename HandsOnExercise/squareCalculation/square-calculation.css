@@ -1,0 +1,27 @@
+body {
+  font-size: 1.1em;
+}
+
+table {
+  margin-top: 1em;
+  border-collapse: collapse; 
+  margin-right: -1px;
+} 
+
+table td {
+  text-align: center;
+  padding: 8px 8px;
+  border:1px solid #000000;
+}
+
+button {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+
+  /* Fancy button style 😎 */
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
