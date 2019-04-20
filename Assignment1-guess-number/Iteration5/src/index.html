@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+  <div id="app" class="container">
+    <div>
+      <h1>Guess the Number</h1>
+      <p>
+        <button type="button" v-on:click="startGame" class="btn btn-primary">
+          {{ startMessage }}
+        </button>
+      </p>
+
+      <h3>You:</h3>
+      <p class="alert alert-info" role="alert">I have got a number in mind which is between 0 and 99, what is it? </p>
+
+      <div v-if="Number.isInteger(currentGuess)">
+        <h3>Computer:</h3>
+        <p class="alert alert-warning" role="alert">It is <span>{{ currentGuess }}</span></p>
+        <p>
+          <button v-on:click="judgeComputer" class="btn btn-outline-primary">COLD</button>
+          <button v-on:click="judgeComputer" class="btn btn-outline-primary">COOL</button>
+          <button v-on:click="judgeComputer" class="btn btn-outline-primary">WARM</button>
+          <button v-on:click="judgeComputer" class="btn btn-outline-primary">HOT</button>
+          <button v-on:click="judgeComputer" class="btn btn-outline-primary">correct</button>
+        </p>
+      </div>
+    </div>
+    <!-- Show computer guess history -->
+    <guess-history :history="npc.guessHistory"></guess-history>
+  </div>
+
+  <script src="lib/array.util.js"></script>
+  <script src="Computer.js"></script>
+  <script src="ComputerExtended.js"></script>
+  <script src="components.js"></script>
+  <script src="controller.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
+
