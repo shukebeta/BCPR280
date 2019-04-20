@@ -24,22 +24,20 @@ let app = new Vue({
 
       if (judgeMessage !== 'correct') {
         this.npc.refineCandidateList(this.currentGuess, judgeMessage)
-      }
-
-      if (this.npc.isMankindLying()) {
-        this._initStartMessage()
-        this.npc.complain()
-      }
-
-      this.npc.saveGuess(this.currentGuess, judgeMessage)
-
-      if (judgeMessage === 'correct') {
+        let isMankindLying = this.npc.isMankindLying()
+        this.npc.saveGuess(this.currentGuess, judgeMessage)
+        if (isMankindLying) {
+          this._initStartMessage()
+          return this.npc.complain()
+        }
+        this.currentGuess = this.npc.getGuess()
+      } else {
+        this.npc.saveGuess(this.currentGuess, judgeMessage)
         this._initStartMessage()
         this.currentGuess = ''
-        return this.npc.celebrate()
+        return this.npc.celebrate()        
       }
 
-      this.currentGuess = this.npc.getGuess()
     },
     _initStartMessage () {
       this.startMessage = 'Start'
