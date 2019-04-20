@@ -35,9 +35,8 @@ let app = new Vue({
         this.npc.saveGuess(this.currentGuess, judgeMessage)
         this._initStartMessage()
         this.currentGuess = ''
-        return this.npc.celebrate()        
+        return this.npc.celebrate()
       }
-
     },
     _initStartMessage () {
       this.startMessage = 'Start'
