@@ -3,7 +3,7 @@ Vue.component('guess-history', {
   template: `
   <div v-if="history.length > 0">
     <h3> Computer Guess History: </h3>
-    <ul class="list-group">
+    <ul class="list-group list-group-flush">
       <li v-for="guess in history" :key="guess.try_count" class="list-group-item"> 
         the {{ number2ordinal(guess.tryCount) }} try, 
         I guessed {{ guess.guess }}, 

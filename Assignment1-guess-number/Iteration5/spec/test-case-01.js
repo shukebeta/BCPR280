@@ -42,5 +42,6 @@ describe("Basic Check For Original Source Code", function () {
       it("should have a constructor function", function () {
         expect(typeof npc.constructor).toBe('function');
       });
+
   });
 });
