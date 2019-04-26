@@ -10,15 +10,18 @@ class Computer {
   constructor () {
     this.tryCount = 0
     this.guessHistory = []
-    this.candidateList = this._getList(0, 99)
+
+    this.guessMin = 0
+    this.guessMax = 99
+    this.candidateList = this._getList(this.guessMin, this.guessMax)
     this.result = 'undefined'
   }
 
   refineCandidateList (guess, result) {
     if (result === 'Try higher') {
-      this.candidateList = this._getList(guess + 1, 99).intersect(this.candidateList)
+      this.candidateList = this._getList(guess + 1, this.guessMax).intersect(this.candidateList)
     } else if (result === 'Try lower') {
-      this.candidateList = this._getList(0, guess - 1).intersect(this.candidateList)
+      this.candidateList = this._getList(this.guessMin, guess - 1).intersect(this.candidateList)
     }
   }
 
@@ -28,10 +31,6 @@ class Computer {
       result.push(i)
     }
     return result
-  }
-
-  _getRand (min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min
   }
 
   saveGuess (guess, result) {

@@ -20,29 +20,37 @@ class ComputerExtended extends Computer {
     return guess
   }
 
+  _getRand (min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min
+  }
+
   refineCandidateList (guess, currentResult) {
     let judgeStandard = {
-      COLD: { min: 40, max: 99 },
+      COLD: { min: 40, max: this.guessMax },
       COOL: { min: 20, max: 39 },
       WARM: { min: 10, max: 19 },
       HOT: { min: 1, max: 9 }
     }
     let standard = judgeStandard[currentResult]
+
     let cList = []
     if (guess + standard.min > this.guessMax) {
-      cList = cList.concat(this._getList(0, guess - standard.min))
-    } else if (guess - standard.min < 0) {
+      let min = guess - standard.max
+      let max = guess - standard.min
+      cList = cList.concat(this._getList(min, max))
+    } else if (guess - standard.min < this.guessMin) {
       let min = guess + standard.min
-      let max = (guess + standard.max >= 99 ? 99 : guess + standard.max)
+      let max = (guess + standard.max >= this.guessMax ? this.guessMax : guess + standard.max)
       cList = cList.concat(this._getList(min, max))
     } else {
-      let min = (guess - standard.max < 0 ? 0 : guess - standard.max)
+      let min = (guess - standard.max < this.guessMin ? this.guessMin : guess - standard.max)
       let max = guess - standard.min
       cList = cList.concat(this._getList(min, max))
       min = guess + standard.min
-      max = (guess + standard.max >= 99 ? 99 : guess + standard.max)
+      max = (guess + standard.max >= this.guessMax ? this.guessMax : guess + standard.max)
       cList = cList.concat(this._getList(min, max))
     }
+
     this.candidateList = this.candidateList.intersect(cList)
   }
 }
