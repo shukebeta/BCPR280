@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Select a file</title>
+  </head>
+  <body>
+    <h1>Select a file</h1>
+    <div id="app">
+      <div>
+        <label>Please input a charactor: 
+        <input type="text" size=10
+          v-model="yourCurrentInput" 
+          :maxlength="1" 
+          v-focus
+          v-on:keyup.enter="onSubmit"></label> <br>
+        <button type="button" v-on:click="onSubmit">Submit</button>
+      </div>
+      <div>
+        <p>You have entered: {{ inputtedChars }}</p>
+        <p>Valid char count: {{ validCharCount }}</p>
+      </div>
+    </div>
+    <script>
+      Vue.component('image-uploader', {
+        template: `
+        <div v-if=imageData>
+        `, 
+        data: function() {
+          return {
+            imageData: ''
+          }
+        },
+        methods: {
+          onFileChange(e) {
+            let 
+          },
+          removeImage(e) {
+            this.src=''
+          }
+        }
+      })
+      new Vue({
+        el: '#app',
+        data: {
+          content: ''
+        },
+        methods: {
+          onFileChange(e)
+        }
+      })
+    </script>
+  </body>
+</html>
