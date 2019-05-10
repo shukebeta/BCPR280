@@ -1,45 +1,9 @@
 <!doctype html>
 <html>
 <head>
+    <title>Correlation & Linear Regression Analysis</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <style>
-        table {
-            border-collapse: collapse;
-            float: left;
-            margin-right: -1px;
-        }
-        table td {
-            text-align: center;
-            padding: 8px 8px;
-            border:1px solid #000000;
-        }
-        div#result {
-            padding-top: 20px;
-            clear: both;
-        }
-        .abutton {
-            position: relative;
-            overflow: hidden;
-            display: inline-block;
-
-            /* Fancy button style 😎 */
-            border: 2px solid black;
-            border-radius: 5px;
-            padding: 8px 12px;
-            cursor: pointer;
-        }
-        .abutton input {
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: -1;
-            opacity: 0;
-        }
-
-        #error {
-            color: red;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div id="app">
@@ -51,18 +15,6 @@
         </label>
     </p>
 
-    <!-- Show error message here -->
-    <ul id="error" v-if="errorFileList.length">
-        <li v-for="file in errorFileList" :key="file.fileName">"{{ file.fileName }}"{{ file.msg }}</li>
-    </ul>
-
-    <!-- allow user clear error message -->
-    <p v-if="errorFileList.length">
-        <label class="abutton">
-            Clear Error Messages
-            <input type="button" v-on:click="clearErrorMsg">
-        </label>
-    </p>
     <h2 v-if="filedata.length > 0">Data List:</h2>
     <table v-if="filedata.length > 0">
         <tr v-for="(onefile, index) in filedata" v-bind:key="onefile.fileId">

@@ -1,11 +1,8 @@
 new Vue({
   el: '#app',
   data: {
-    message: 'hello, vue',
-    filedata: [
-    ],
-    result: null,
-    errorFileList: []
+    filedata: [],
+    result: null
   },
   methods: {
     fileChangeHandler (event) {
@@ -19,14 +16,6 @@ new Vue({
         const file = event.target.files[i];
         for (let uploaded of self.filedata) {
           if (file.name == uploaded.fileName) {
-            self.errorFileList.push({fileName: file.name, msg: ' has already been uploaded.'});
-            return
-          }
-        }
-
-        for (let uploaded of self.errorFileList) {
-          if (file.name == uploaded.fileName) {
-            self.errorFileList.push({fileName: file.name, msg: ' has already been uploaded.'});
             return
           }
         }
@@ -37,7 +26,6 @@ new Vue({
           let dataList = []
           for(let num of data) {
             if (isNaN(num)) {
-              self.errorFileList.push({fileName: file.name, msg: ' is not a valid data file.',});
               return
             }
             dataList.push(+num)
@@ -48,9 +36,7 @@ new Vue({
         reader.readAsText(file);
       })
     },
-    clearErrorMsg (){
-      this.errorFileList = []
-    },
+
     removeFile(fileId) {
       let newFileData = []
       for (let file of this.filedata) {
