@@ -2,14 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dda38c09-8297-4e2c-adf8-0aaf72514161" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/mean_and_sd.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../assignment2/src/Controller.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../assignment2/src/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../first-react-app/.idea/first-react-app.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../first-react-app/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../first-react-app/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../first-react-app/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../first-react-app/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../first-react-app/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../first-react-app/src/ClickCounter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../assignment2/src/Controller-React.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../assignment2/src/index-react.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../assignment2/src/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../assignment2/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../assignment2/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../assignment2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../assignment2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../assignment2/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../assignment2/src/index.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />

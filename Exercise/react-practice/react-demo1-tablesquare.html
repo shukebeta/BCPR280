@@ -1,0 +1,100 @@
+
+<!-- from https://reactjs.org/docs/hello-world.html -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My first React app</title>
+
+  <!--
+      https://reactjs.org/docs/try-react.html
+      
+      Note: this page is a great way to try React but it's not suitable for production.
+      It slowly compiles JSX with Babel in the browser and uses a large development build of React.
+
+      To set up a production-ready React build environment, follow these instructions:
+      * https://reactjs.org/docs/add-react-to-a-new-app.html
+      * https://reactjs.org/docs/add-react-to-an-existing-app.html
+
+      You can also use React without JSX, in which case you can remove Babel:
+      * https://reactjs.org/docs/react-without-jsx.html
+      * https://reactjs.org/docs/cdn-links.html
+  -->   
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    class List extends React.Component {
+      render() {
+        return (
+          <ol>
+            {this.props.data.map(
+              (result, index) => (
+                <li key={index.toString()}>{result}</li>
+              )
+            )}
+          </ol>
+        )
+      }
+    }
+
+    class SquareApp extends React.Component {
+      constructor(props) {
+        super(props)
+        this.state = {
+          end: 5,
+          allMyNumbers: []
+        }
+
+        this.start = 1
+        this.handleClick = this.handleClick.bind(this)
+        this.handleChange = this.handleChange.bind(this)
+      }
+
+      handleClick(e) {
+        let results = []
+        for (let i = this.start; i <= this.state.end; i++) {
+          results.push(i*i)
+        }
+        this.setState({allMyNumbers: results})
+      }
+
+      handleChange(e) {
+        this.setState({end: e.target.value})
+      }
+
+      render() {
+        return (
+          <React.Fragment>
+            <h1>Exercise Squared Numbers</h1>
+            <input 
+              id="enterEndValue" 
+              value={this.state.end} 
+              onChange={this.handleChange}
+            ></input>
+            <button type="button" onClick={this.handleClick}>Display</button>
+            
+            <List data={this.state.allMyNumbers} />
+            <p></p>
+            
+            
+          </React.Fragment>
+        )
+      }
+    }
+
+    const element = <SquareApp />
+
+    ReactDOM.render(
+      element,
+      document.getElementById('root')
+    );
+  </script>
+</body>
+</html>

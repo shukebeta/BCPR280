@@ -1,0 +1,98 @@
+
+<!-- from https://reactjs.org/docs/hello-world.html -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My first React app</title>
+
+  <!--
+      https://reactjs.org/docs/try-react.html
+      
+      Note: this page is a great way to try React but it's not suitable for production.
+      It slowly compiles JSX with Babel in the browser and uses a large development build of React.
+
+      To set up a production-ready React build environment, follow these instructions:
+      * https://reactjs.org/docs/add-react-to-a-new-app.html
+      * https://reactjs.org/docs/add-react-to-an-existing-app.html
+
+      You can also use React without JSX, in which case you can remove Babel:
+      * https://reactjs.org/docs/react-without-jsx.html
+      * https://reactjs.org/docs/cdn-links.html
+  -->   
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+  <h2>Counting Inputted Characters</h1>
+  <div id="counting">
+    
+
+    <div>
+      <label>Please input a charactor: 
+      <input type="text" size=10
+        v-model="yourCurrentInput" 
+        :maxlength="1" 
+        v-focus
+        v-on:keyup.enter="onSubmit"></label> <br>
+      <button type="button" v-on:click="onSubmit">Submit</button>
+    </div>
+
+  </div>
+  <script type="text/babel">
+
+
+    class CountingCharNumber extends React.Component {
+      constructor(props) {
+        super(props)
+        this.state = {
+          charString: '',
+          charCount: 0
+        }
+      }
+
+      render() {
+        return (
+          <div>
+            <p>You have entered: {this.state.charString}</p>
+            <p>Valid char count: {this.state.charCount}</p>
+          </div>
+        )
+      }
+    }
+    let numList = [1,2,3,7,8,9]
+    ReactDOM.render(
+      <NumberList numList={numList} />,
+      document.getElementById('app')
+    );
+
+  </script>
+  <div id="app">
+  </div>
+
+  <script type="text/babel">
+    /*
+      <script type="text/babel"> due to using JSX in React
+      JSX allows to mix HTML code (starting with the beginning tag <) and JavaScript code starting with {
+    */
+    // It renders a heading saying “Hello, world!” inside the HTML element of "app" on the page.
+
+    function NumberList(props) {
+      const listItems = props.numList.map(
+        (num) => (<li  key={num.toString()}>{num}</li>)
+      )
+      return (
+        <ul>{listItems}</ul>
+      )
+    }
+    let numList = [1,2,3,7,8,9]
+    ReactDOM.render(
+      <NumberList numList={numList} />,
+      document.getElementById('app')
+    );
+  </script>
+</body>
+</html>
