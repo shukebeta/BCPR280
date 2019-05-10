@@ -49,7 +49,7 @@ new Vue({
     },
     calculate() {
       let correlation = new Correlation(this.filedata[0].dataList, this.filedata[1].dataList)
-      let lra = new LinearRegressionAnalysis(this.filedata[0].dataList, this.filedata[1].dataList)
+      let lra = new LinearRegression(this.filedata[0].dataList, this.filedata[1].dataList)
 
       this.result = null
       this.result = {

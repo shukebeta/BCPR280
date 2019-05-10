@@ -1,4 +1,5 @@
-class LinearRegressionAnalysis extends MathLib {
+import {MathLib} from "./MathLib.mjs"
+class LinearRegression extends MathLib {
 
     constructor(numListX, numListY) {
         super()
@@ -21,3 +22,5 @@ class LinearRegressionAnalysis extends MathLib {
         return this.getAvg(this.y) - this.getBeta1() * this.getAvg(this.x)
     }
 }
+
+export {LinearRegression}

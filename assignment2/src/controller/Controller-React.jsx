@@ -68,7 +68,7 @@ class FileUploader extends React.Component {
 
   calculate = () => {
     let correlation = new Correlation(this.state.filedata[0].dataList, this.state.filedata[1].dataList)
-    let lra = new LinearRegressionAnalysis(this.state.filedata[0].dataList, this.state.filedata[1].dataList)
+    let lra = new LinearRegression(this.state.filedata[0].dataList, this.state.filedata[1].dataList)
 
     this.setState({
       result: {

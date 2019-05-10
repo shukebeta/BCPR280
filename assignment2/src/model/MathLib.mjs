@@ -1,3 +1,4 @@
+"use strict"
 class MathLib {
 
   getSum(numList) {
@@ -32,3 +33,5 @@ class MathLib {
   }
 
 }
+
+export {MathLib}

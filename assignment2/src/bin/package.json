@@ -1,0 +1,22 @@
+{
+  "name": "bin",
+  "version": "1.0.0",
+  "description": "Statistic Analysis Assignment nodejs version",
+  "main": "index.mjs",
+  "scripts": {
+    "test": "node --experimental-modules index.mjs ./TestData2.txt ./TestData3.txt "
+  },
+  "keywords": [
+    "statistics",
+    "analysis"
+  ],
+  "author": "Zhong Wei",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^2.4.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/shukebeta/BCPR280.git"
+  }
+}

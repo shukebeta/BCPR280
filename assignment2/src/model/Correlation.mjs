@@ -1,3 +1,5 @@
+import {MathLib} from "./MathLib.mjs"
+
 class Correlation extends MathLib {
   constructor(numListX, numListY) {
     super()
@@ -31,3 +33,5 @@ class Correlation extends MathLib {
     return r * r
   }
 }
+
+export {Correlation}

@@ -1,3 +1,7 @@
+"use strict"
+import {LinearRegression} from "../model/LinearRegression.mjs";
+console.log(typeof LinearRegression)
+
 describe("linear-regression-analysis", function () {
   'use strict'
   describe("calculate beta1, beta0", function () {
@@ -8,10 +12,9 @@ describe("linear-regression-analysis", function () {
     let encl = [163, 765, 141, 166, 137, 355, 136, 1206, 433, 1130]
     let ancl = [186, 699, 132, 272, 291, 331, 199, 1890, 788, 1601]
 
-
     beforeEach(function () {
-      lra1 = new LinearRegressionAnalysis(eol, ancl)
-      lra2 = new LinearRegressionAnalysis(encl, ancl)
+      lra1 = new LinearRegression(eol, ancl)
+      lra2 = new LinearRegression(encl, ancl)
     })
 
     it("avg eol should be 382.8", function () {

@@ -1,3 +1,5 @@
+import {Correlation} from "../model/Correlation.mjs";
+
 describe("correlation", function () {
   'use strict'
   describe("calculate RSquare", function () {
