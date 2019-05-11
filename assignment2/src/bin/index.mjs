@@ -1,11 +1,10 @@
 #!/usr/bin/env node
 
 "use strict"
-import {Correlation} from "../model/Correlation.mjs"
-import {LinearRegression} from "../model/LinearRegression.mjs"
 
 import chalk from 'chalk'
-import fs from 'fs'
+import {ReadFileAndCalculate} from "./read-data-file-and-calculate.mjs"
+
 //import path from 'path'
 //const __dirname = decodeURIComponent(path.dirname(new URL(import.meta.url).pathname))
 
@@ -35,44 +34,8 @@ if (args.length != 4) {
   usage()
 }
 
-//let file1 = path.join(__dirname, args[2])
-//let file2 = path.join(__dirname, args[3])
+(new ReadFileAndCalculate(args[2], args[3])).calculateAndOutput()
 
-
-let result = {
-  file1: args[2],
-  file2: args[3],
-  dataList1: [],
-  dataList2: [],
-  correlation: null,
-  beta0: null,
-  beta1: null,
-}
-
-fs.readFile(args[2], {encoding: 'utf-8'}, (err, data) => {
-  if (err) {
-    console.log(err)
-  } else {
-    result.dataList1 = data.trim().split(/[\r\n \t]+/).map(num => +num)
-    fs.readFile(args[3], {encoding: 'utf-8'}, (err, data) => {
-      if (err) {
-        console.log(err)
-      } else {
-        result.dataList2 = data.trim().split(/[\r\n \t]+/).map(num => +num)
-        result.correlation = (new Correlation(result.dataList1, result.dataList2)).getSquareR()
-        let lr = new LinearRegression(result.dataList1, result.dataList2)
-        result.beta0 = lr.getBeta0()
-        result.beta1 = lr.getBeta1()
-
-        console.log('file1:', result.file1, result.dataList1)
-        console.log('file2:', result.file2, result.dataList2)
-        console.log('Correlation:', result.correlation)
-        console.log('Linear Regression beta 0:', result.beta0)
-        console.log('Linear Regression beta 1:', result.beta1)
-      }
-    })
-  }
-});
 
 
 
