@@ -1,3 +1,6 @@
+import {Correlation} from "../model/Correlation.mjs"
+import {LinearRegression} from "../model/LinearRegression.mjs"
+
 new Vue({
   el: '#app',
   data: {
