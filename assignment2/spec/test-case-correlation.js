@@ -1,4 +1,4 @@
-import {Correlation} from "../model/Correlation.mjs";
+import {Correlation} from "../src/model/Correlation.mjs";
 
 describe("correlation", function () {
   'use strict'

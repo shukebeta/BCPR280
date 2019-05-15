@@ -1,5 +1,5 @@
 "use strict"
-import {LinearRegression} from "../model/LinearRegression.mjs";
+import {LinearRegression} from "../src/model/LinearRegression.mjs";
 console.log(typeof LinearRegression)
 
 describe("linear-regression-analysis", function () {
