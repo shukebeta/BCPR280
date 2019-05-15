@@ -38,27 +38,27 @@ describe("correlation", function () {
     })
 
     it("sumY should be 59.2", function () {
-      expect(mathlib.getSum(y) - 59.2 < 0.01).toBe(true)
+      expect(mathlib.getSum(y)).toBeCloseTo(59.2)
     })
 
     it("sumXY should be 7747.7", function () {
-      expect(mathlib.getProductSum(x, y) - 7747.7 < 0.01).toBe(true)
+      expect(mathlib.getProductSum(x, y)).toBeCloseTo(7747.7)
     })
 
     it("sumSquareX should be 74498", function () {
-      expect(mathlib.getSquareSum(x) - 74498).toBe(0)
+      expect(mathlib.getSquareSum(x)).toBe(74498)
     })
 
     it("sumSquareY should be 830.14", function () {
-      expect(mathlib.getSquareSum(y) - 830.14 < 0.01).toBe(true)
+      expect(mathlib.getSquareSum(y)).toBeCloseTo(830.14)
     })
 
     it("Rxy should be 0.911737", function () {
-      expect(mathlib.getRxy() - 0.911737 < 0.01).toBe(true)
+      expect(mathlib.getRxy()).toBeCloseTo(0.911737)
     })
 
     it("SquareR should be 0.831264", function () {
-      expect(mathlib.getSquareR() - 0.831264 < 0.01).toBe(true)
+      expect(mathlib.getSquareR()).toBeCloseTo(0.831264)
     })
   })
 })
