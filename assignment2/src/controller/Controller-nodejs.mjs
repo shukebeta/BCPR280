@@ -6,7 +6,7 @@ import fs from 'fs'
 import readline from 'readline'
 import chalk from 'chalk'
 
-const dataFileFolder = '../test-data/'
+const dataFileFolder = '../../test-data/'
 let fileList
 
 console.clear()

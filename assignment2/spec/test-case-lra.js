@@ -18,23 +18,23 @@ describe("linear-regression-analysis", function () {
     })
 
     it("avg eol should be 382.8", function () {
-      expect(lra1.getAvg(eol) - 382.8 < 0.01).toBe(true)
+      expect(lra1.getAvg(eol)).toBeCloseTo(382.8)
     })
 
     it("lra1 beta0 should be -22.55", function () {
-      expect(lra1.getBeta0() - -22.55 < 0.01).toBe(true)
+      expect(lra1.getBeta0()).toBeCloseTo(-22.55)
     })
 
     it("lra1 beta1 should be 1.7279", function () {
-      expect(lra1.getBeta1() - 1.7279 < 0.01).toBe(true)
+      expect(lra1.getBeta1()).toBeCloseTo(1.7279)
     })
 
     it("lra2 beta0 should be -23.92", function () {
-      expect(lra2.getBeta0() - -23.92 < 0.01).toBe(true)
+      expect(lra2.getBeta0()).toBeCloseTo(-23.92)
     })
 
     it("lra2 beta1 should be 1.4310", function () {
-      expect(lra2.getBeta1() - 1.4310 < 0.01).toBe(true)
+      expect(lra2.getBeta1()).toBeCloseTo(1.4310)
     })
   })
 })
