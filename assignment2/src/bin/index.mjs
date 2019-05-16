@@ -1,10 +1,6 @@
 #!/usr/bin/env node --experimental-modules --no-warnings
 
-import chalk from 'chalk'
 import {ReadFileAndCalculate} from "./read-data-file-and-calculate.mjs"
-
-//import path from 'path'
-//const __dirname = decodeURIComponent(path.dirname(new URL(import.meta.url).pathname))
 
 const args = process.argv
 
@@ -20,19 +16,12 @@ const usage = function() {
   console.log(usageText)
 }
 
-// used to log errors to the console in red color
-function errorLog(error) {
-  const eLog = chalk.red(error)
-  console.log(eLog)
-}
-
 // we make sure the length of the arguments is exactly four
 if (args.length != 4) {
-  errorLog(`only two argument can be accepted`)
   usage()
+} else {
+  (new ReadFileAndCalculate(args[2], args[3])).calculateAndOutput()
 }
-
-(new ReadFileAndCalculate(args[2], args[3])).calculateAndOutput()
 
 
 

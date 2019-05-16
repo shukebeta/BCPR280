@@ -1,4 +1,3 @@
-
 class FileUploader extends React.Component {
   constructor(props) {
     super(props)
@@ -68,15 +67,24 @@ class FileUploader extends React.Component {
   calculate = () => {
     let correlation = new Correlation(this.state.filedata[0].dataList, this.state.filedata[1].dataList)
     let lra = new LinearRegression(this.state.filedata[0].dataList, this.state.filedata[1].dataList)
+    let lr2 = new LinearRegression(this.state.filedata[1].dataList, this.state.filedata[0].dataList)
 
     this.setState({
-      result: {
-        file1: this.state.filedata[0].fileName,
-        file2: this.state.filedata[1].fileName,
-        squareR: correlation.getSquareR(),
-        beta0: lra.getBeta0(),
-        beta1: lra.getBeta1()
-      }
+      result: [
+        {
+          file1: this.state.filedata[0].fileName,
+          file2: this.state.filedata[1].fileName,
+          squareR: correlation.getSquareR(),
+          beta0: lra.getBeta0(),
+          beta1: lra.getBeta1()
+        },{
+          file1: this.state.filedata[1].fileName,
+          file2: this.state.filedata[0].fileName,
+          squareR: correlation.getSquareR(),
+          beta0: lr2.getBeta0(),
+          beta1: lr2.getBeta1()
+        }
+      ]
     });
   }
 
@@ -118,7 +126,7 @@ class FileUploader extends React.Component {
         }
         {!!this.state.result &&
         <React.Fragment>
-        <h2>Result:</h2>
+        <h2>Result</h2>
         <table>
           <tbody>
           <tr>
@@ -129,11 +137,18 @@ class FileUploader extends React.Component {
             <th>LR beta 1</th>
           </tr>
           <tr>
-            <td>{this.state.result.file1}</td>
-            <td>{this.state.result.file2}</td>
-            <td>{this.state.result.squareR}</td>
-            <td>{this.state.result.beta0}</td>
-            <td>{this.state.result.beta1}</td>
+            <td>{this.state.result[0].file1}</td>
+            <td>{this.state.result[0].file2}</td>
+            <td>{this.state.result[0].squareR}</td>
+            <td>{this.state.result[0].beta0}</td>
+            <td>{this.state.result[0].beta1}</td>
+          </tr>
+          <tr>
+            <td>{this.state.result[1].file1}</td>
+            <td>{this.state.result[1].file2}</td>
+            <td>{this.state.result[1].squareR}</td>
+            <td>{this.state.result[1].beta0}</td>
+            <td>{this.state.result[1].beta1}</td>
           </tr>
           </tbody>
           </table>

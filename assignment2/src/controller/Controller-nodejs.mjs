@@ -7,60 +7,81 @@ import readline from 'readline'
 import chalk from 'chalk'
 
 const dataFileFolder = '../../test-data/'
-let fileList
 
-console.clear()
-
-let getColorText = (error, color) => {
-  color = color || 'red'
-  return chalk[color](error)
-}
-
-let colorLog = (error, color) => {
-  console.log(getColorText(error, color))
-}
-
-
-let getPrompt = () => {
-  let promptStrList = [chalk.greenBright("data file list:")]
-  fileList = []
-  fs.readdirSync(dataFileFolder).map((file, index) => {
-    fileList.push(file)
-    promptStrList.push(getColorText((index + 1).toString(), 'yellow') + ' ' + file)
-  })
-  promptStrList.push(chalk.greenBright('Please input two space separated number ahead the data file> '))
-  return promptStrList.join("\n")
-}
-
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-  prompt: getPrompt()
-});
-
-rl.prompt();
-
-rl.on('line', (line) => {
-  console.clear()
-  let fileIndexList = line.trim().split(/[, ]+/).map(num => num - 1)
-
-  if (fileIndexList.length != 2) {
-    colorLog('invalid input: you can and only can input two number')
-    rl.prompt()
-    return
+class ContrllerNode {
+  constructor(dataFileDir) {
+    this.dataFileDir = dataFileDir
+    this.fileList = []
+    this.rl = readline.createInterface({
+      input: process.stdin,
+      output: process.stdout,
+      prompt: this.getPrompt()
+    })
+    this.run()
   }
 
-  for (let fileIndex of fileIndexList) {
-    if (fileIndex + 1 > fileList.length) {
-      colorLog('invalid input: your input is too big!')
-      rl.prompt()
-      return
-    }
+  getColorText = (error, color) => {
+    color = color || 'red'
+    return chalk[color](error)
   }
-  (new ReadFileAndCalculate(
-    dataFileFolder + fileList[fileIndexList[0]],
-    dataFileFolder + fileList[fileIndexList[1]])).calculateAndOutput(() => rl.prompt())
-}).on('close', () => {
-  console.log('Have a great day!');
-  process.exit(0);
-});
+
+  colorLog = (error, color) => {
+    console.log(this.getColorText(error, color))
+  }
+
+  getPrompt = () => {
+    let promptStrList = [this.getColorText("Data file", 'yellow')]
+    this.fileList = []
+    fs.readdirSync(dataFileFolder).map((file, index) => {
+      this.fileList.push(file)
+      promptStrList.push(this.getColorText((index + 1).toString(), 'yellow') + ' ' + file)
+    })
+    promptStrList.push(
+      this.getColorText('Key in two of the yellow numbers such as ', 'green') +
+      this.getColorText('1 2', 'yellow') +
+      this.getColorText(' or Press Ctrl + C to exit > ', 'green')
+    )
+    return promptStrList.join("\n")
+  }
+
+  run = () => {
+    console.clear()
+    this.rl.prompt();
+    this.rl.on('line', (line) => {
+
+      console.clear()
+      let fileIndexList = line.trim().split(/[, ]+/).map(num => num - 1)
+      if (fileIndexList.length != 2) {
+        this.colorLog('invalid input: you can and only can input two number')
+        this.rl.prompt()
+        return
+      }
+
+      for (let fileIndex of fileIndexList) {
+        let _fileIndex = +fileIndex
+        if (_fileIndex > this.fileList.length - 1) {
+          this.colorLog('invalid input: ' + line + '. At least one of your input is too big!')
+          this.rl.prompt()
+          return
+        } else if (_fileIndex < 0) {
+          this.colorLog('invalid input: ' + line + '. At least one of your input is too small!')
+          this.rl.prompt()
+          return
+        } else if (isNaN(_fileIndex)) {
+          this.colorLog('invalid input: ' + line + '. At least one of your input is not a number!')
+          this.rl.prompt()
+          return
+        }
+      }
+
+      (new ReadFileAndCalculate(
+        dataFileFolder + this.fileList[fileIndexList[0]],
+        dataFileFolder + this.fileList[fileIndexList[1]])).calculateAndOutput(() => this.rl.prompt())
+    }).on('close', () => {
+      console.log('Have a great day!')
+      process.exit(0)
+    })
+  }
+}
+
+new ContrllerNode(dataFileFolder)

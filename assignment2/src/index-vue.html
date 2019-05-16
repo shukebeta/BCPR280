@@ -30,7 +30,7 @@
             <input type="button" v-on:click="calculate">
         </label>
         <div v-if="result !== null">
-            <h2>Result:</h2>
+            <h2>Result</h2>
             <table>
                 <tr>
                     <th>File1 (x)</th>
@@ -39,12 +39,12 @@
                     <th>LR beta 0</th>
                     <th>LR beta 1</th>
                 </tr>
-                <tr>
-                    <td>{{ result.file1 }}</td>
-                    <td>{{ result.file2 }}</td>
-                    <td>{{ result.squareR }}</td>
-                    <td>{{ result.beta0 }}</td>
-                    <td>{{ result.beta1 }}</td>
+                <tr v-for="_r in result" v-bind:key="_r.beta1">
+                    <td>{{ _r.file1 }}</td>
+                    <td>{{ _r.file2 }}</td>
+                    <td>{{ _r.squareR }}</td>
+                    <td>{{ _r.beta0 }}</td>
+                    <td>{{ _r.beta1 }}</td>
                 </tr>
             </table>
         </div>

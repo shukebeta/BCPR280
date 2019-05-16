@@ -53,15 +53,24 @@ new Vue({
     calculate() {
       let correlation = new Correlation(this.filedata[0].dataList, this.filedata[1].dataList)
       let lra = new LinearRegression(this.filedata[0].dataList, this.filedata[1].dataList)
+      let lr2 = new LinearRegression(this.filedata[1].dataList, this.filedata[0].dataList)
 
       this.result = null
-      this.result = {
-        file1: this.filedata[0].fileName,
-        file2: this.filedata[1].fileName,
-        squareR: correlation.getSquareR(),
-        beta0: lra.getBeta0(),
-        beta1: lra.getBeta1()
-      }
+      this.result = [
+        {
+          file1: this.filedata[0].fileName,
+          file2: this.filedata[1].fileName,
+          squareR: correlation.getSquareR(),
+          beta0: lra.getBeta0(),
+          beta1: lra.getBeta1()
+        },{
+          file1: this.filedata[1].fileName,
+          file2: this.filedata[0].fileName,
+          squareR: correlation.getSquareR(),
+          beta0: lr2.getBeta0(),
+          beta1: lr2.getBeta1()
+        }
+      ]
     }
   }
-});
+})

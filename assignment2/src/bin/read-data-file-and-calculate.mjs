@@ -35,11 +35,14 @@ class ReadFileAndCalculate {
             result.beta0 = lr.getBeta0()
             result.beta1 = lr.getBeta1()
 
+            console.log(chalk.yellow('Data List'))
             console.log(chalk.green('file1: (x)'), result.file1, result.dataList1.join(', '))
             console.log(chalk.green('file2: (y)'), result.file2, result.dataList2.join(', '))
-            console.log(chalk.green('Correlation:'), result.correlation)
-            console.log(chalk.green('Linear Regression beta 0:'), result.beta0)
-            console.log(chalk.green('Linear Regression beta 1:'), result.beta1, "\n")
+            console.log()
+            console.log(chalk.yellow('Result'))
+            console.log(chalk.green('Correlation:'), chalk.white(result.correlation))
+            console.log(chalk.green('Linear Regression beta 0:'), chalk.white(result.beta0))
+            console.log(chalk.green('Linear Regression beta 1:'), chalk.white(result.beta1, "\n"))
             if (typeof callback !== 'undefined') {
               callback()
             }
