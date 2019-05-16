@@ -88,17 +88,24 @@ class FileUploader extends React.Component {
     });
   }
 
+  bootstrapOn = (e) => {
+    document.getElementById('bootstrap-css').rel = (e.target.checked) ? 'stylesheet' : 'bullshit'
+  }
+
   render() {
     let availableFileCount = 2 - this.state.uploadedFileCount
     return (
-      <React.Fragment>
+      <div className="container-fluid">
+        <label><input type="checkbox" onClick={this.bootstrapOn} /> Bootstrap on</label>
+        <p>
         {
           !!availableFileCount &&
-          <label className="abutton">
+          <label className="abutton btn btn-primary">
             Select {availableFileCount} Data File
             <input id="inputFile" type="file" multiple="multiple" onChange={this.fileChange}></input>
           </label>
         }
+        </p>
         {!!this.state.filedata.length &&
         <React.Fragment>
           <h2>Data List</h2>
@@ -108,53 +115,55 @@ class FileUploader extends React.Component {
               <tr key={file.fileName}>
                 <td>{file.fileName}</td>
                 <td>{file.dataList.join(', ')}</td>
-                <td><a onClick={() => this.removeFile(file.fileName)}>Remove</a></td>
+                <td><button type="button" className={"btn btn-info"} onClick={() => this.removeFile(file.fileName)}>Remove</button></td>
               </tr>
             )}
             </tbody>
           </table>
         </React.Fragment>
         }
+        <div id="result">
         {
           !availableFileCount && !this.state.result &&
           <p>
-            <label className="abutton">
+            <label className="abutton btn btn-primary">
               Calculate
               <input type="button" onClick={this.calculate}></input>
             </label>
           </p>
         }
         {!!this.state.result &&
-        <React.Fragment>
-        <h2>Result</h2>
-        <table>
-          <tbody>
-          <tr>
-            <th>File1 (x)</th>
-            <th>File2 (y)</th>
-            <th>Correlation</th>
-            <th>LR beta 0</th>
-            <th>LR beta 1</th>
-          </tr>
-          <tr>
-            <td>{this.state.result[0].file1}</td>
-            <td>{this.state.result[0].file2}</td>
-            <td>{this.state.result[0].squareR}</td>
-            <td>{this.state.result[0].beta0}</td>
-            <td>{this.state.result[0].beta1}</td>
-          </tr>
-          <tr>
-            <td>{this.state.result[1].file1}</td>
-            <td>{this.state.result[1].file2}</td>
-            <td>{this.state.result[1].squareR}</td>
-            <td>{this.state.result[1].beta0}</td>
-            <td>{this.state.result[1].beta1}</td>
-          </tr>
-          </tbody>
+        <div>
+          <h2>Result</h2>
+          <table>
+            <tbody>
+            <tr>
+              <th>File1 (x)</th>
+              <th>File2 (y)</th>
+              <th>Correlation</th>
+              <th>LR beta 0</th>
+              <th>LR beta 1</th>
+            </tr>
+            <tr>
+              <td>{this.state.result[0].file1}</td>
+              <td>{this.state.result[0].file2}</td>
+              <td>{this.state.result[0].squareR}</td>
+              <td>{this.state.result[0].beta0}</td>
+              <td>{this.state.result[0].beta1}</td>
+            </tr>
+            <tr>
+              <td>{this.state.result[1].file1}</td>
+              <td>{this.state.result[1].file2}</td>
+              <td>{this.state.result[1].squareR}</td>
+              <td>{this.state.result[1].beta0}</td>
+              <td>{this.state.result[1].beta1}</td>
+            </tr>
+            </tbody>
           </table>
-          </React.Fragment>
+        </div>
         }
-      </React.Fragment>
+        </div>
+      </div>
     )
   }
 

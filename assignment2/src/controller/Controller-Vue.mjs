@@ -71,6 +71,9 @@ new Vue({
           beta1: lr2.getBeta1()
         }
       ]
+    },
+    bootstrapOn(e) {
+      document.getElementById('bootstrap-css').rel = (e.target.checked) ? 'stylesheet' : 'bullshit'
     }
   }
 })
