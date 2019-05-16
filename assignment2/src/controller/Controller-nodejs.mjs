@@ -1,4 +1,4 @@
-#!/usr/bin/env node --experimental-modules
+#!/usr/bin/env node --experimental-modules --no-warnings
 
 import {ReadFileAndCalculate} from "../bin/read-data-file-and-calculate.mjs"
 import fs from 'fs'

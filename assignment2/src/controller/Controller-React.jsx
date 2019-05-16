@@ -122,8 +122,8 @@ class FileUploader extends React.Component {
         <table>
           <tbody>
           <tr>
-            <th>File1</th>
-            <th>File2</th>
+            <th>File1 (x)</th>
+            <th>File2 (y)</th>
             <th>Correlation</th>
             <th>LR beta 0</th>
             <th>LR beta 1</th>

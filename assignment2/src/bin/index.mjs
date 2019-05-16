@@ -1,6 +1,4 @@
-#!/usr/bin/env node
-
-"use strict"
+#!/usr/bin/env node --experimental-modules --no-warnings
 
 import chalk from 'chalk'
 import {ReadFileAndCalculate} from "./read-data-file-and-calculate.mjs"

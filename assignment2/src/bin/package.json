@@ -4,7 +4,7 @@
   "description": "Statistic Analysis Assignment nodejs version",
   "main": "index.mjs",
   "scripts": {
-    "test": "node --experimental-modules index.mjs ./TestData2.txt ./TestData3.txt "
+    "test": "node --experimental-modules --no-warnings index.mjs ../../test-data/TestData2.txt ../../test-data/TestData3.txt "
   },
   "keywords": [
     "statistics",
