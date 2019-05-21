@@ -1,6 +1,3 @@
-import {Correlation} from "../model/Correlation.mjs"
-import {LinearRegression} from "../model/LinearRegression.mjs"
-
 new Vue({
   el: '#app',
   data: {
@@ -50,26 +47,19 @@ new Vue({
       this.result = null
     },
     calculate() {
-      let correlation = new Correlation(this.filedata[0].dataList, this.filedata[1].dataList)
-      let lra = new LinearRegression(this.filedata[0].dataList, this.filedata[1].dataList)
-      let lr2 = new LinearRegression(this.filedata[1].dataList, this.filedata[0].dataList)
-
-      this.result = null
-      this.result = [
-        {
-          file1: this.filedata[0].fileName,
-          file2: this.filedata[1].fileName,
-          squareR: correlation.getSquareR(),
-          beta0: lra.getBeta0(),
-          beta1: lra.getBeta1()
-        },{
-          file1: this.filedata[1].fileName,
-          file2: this.filedata[0].fileName,
-          squareR: correlation.getSquareR(),
-          beta0: lr2.getBeta0(),
-          beta1: lr2.getBeta1()
-        }
-      ]
+      let self = this
+      axios.get('http://localhost:8964/get-all', {params:{
+        listx: self.filedata[0].dataList.join(','),
+        listy: self.filedata[1].dataList.join(',')
+      }}).then(function(response) {
+        self.result = [{
+          file1: self.filedata[0].fileName,
+          file2: self.filedata[1].fileName,
+          squareR: response.data.correlation,
+          beta0: response.data.beta0,
+          beta1: response.data.beta1
+        }]
+      })
     },
     bootstrapOn(e) {
       document.getElementById('bootstrap-css').rel = (e.target.checked) ? 'stylesheet' : 'bullshit'

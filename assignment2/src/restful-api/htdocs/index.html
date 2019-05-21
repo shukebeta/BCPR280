@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+    <title>Correlation & Linear Regression Analysis</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link id="bootstrap-css" rel="bullshit" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+<div id="app" class="container-fluid">
+    <label><input type="checkbox" v-on:click="bootstrapOn"> Bootstrap on</label>
+    <p v-if="filedata.length < 2">
+        <label class="abutton btn btn-primary" role="alert">
+            Select {{2 - filedata.length}} Data File
+            <input id="inputFile" type="file" multiple="multiple" v-on:change="fileChangeHandler">
+        </label>
+    </p>
+
+    <h2 v-if="filedata.length > 0">Data List:</h2>
+    <table v-if="filedata.length > 0">
+        <tr v-for="(onefile, index) in filedata" v-bind:key="onefile.fileId">
+            <td aligh="right">{{ onefile.fileName }}</td>
+            <td>{{ onefile.dataList.join(', ') }}</td>
+            <td><button type="button" v-on:click="removeFile(onefile.fileId)" class="btn btn-info">Remove</button></td>
+        </tr>
+    </table>
+
+    <div v-if="filedata.length === 2" id="result">
+        <label class="abutton btn btn-primary" v-if="result === null">
+            Calculate
+            <input type="button" v-on:click="calculate">
+        </label>
+        <div v-if="result !== null">
+            <h2>Result</h2>
+            <table>
+                <tr>
+                    <th>File1 (x)</th>
+                    <th>File2 (y)</th>
+                    <th>Correlation</th>
+                    <th>LR beta 0</th>
+                    <th>LR beta 1</th>
+                </tr>
+                <tr v-for="_r in result" v-bind:key="_r.beta1">
+                    <td>{{ _r.file1 }}</td>
+                    <td>{{ _r.file2 }}</td>
+                    <td>{{ _r.squareR }}</td>
+                    <td>{{ _r.beta0 }}</td>
+                    <td>{{ _r.beta1 }}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script type="module" src="js/Controller-Vue.mjs"></script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

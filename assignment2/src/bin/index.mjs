@@ -7,7 +7,7 @@ const args = process.argv
 // usage represents the help guide
 const usage = function() {
   const usageText = `
-  index.js help you calculate correlation and linear regression beta0 and beta1.
+  This script aims to help you calculate correlation and linear regression beta0 and beta1.
 
   usage:
     index.js <datafile1> <datafile2>

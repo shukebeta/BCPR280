@@ -14,7 +14,7 @@ Once you started this serivce, it is running on port： **8964**.
     
 ## Available API
 
-### /api/v1/get-correlation
+### /get-correlation
 
 - request method: **GET**
 - must have **parameters**:
@@ -33,7 +33,7 @@ Once you started this serivce, it is running on port： **8964**.
       "message": "invalid listx or listy"
   }`
  
-### /api/v1/get-linear-regression
+### /get-linear-regression
 
 
 - request method: **GET**
