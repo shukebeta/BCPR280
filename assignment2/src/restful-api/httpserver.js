@@ -15,7 +15,7 @@ import url from 'url'
 import path from 'path'
 import mime from 'mime'
 import qs from 'querystring'
-import ApiRequest from './apirequest.js'
+import ApiRequest from './ApiRequest.js'
 
 const wwwfilePrefix = 'htdocs/'
 const SERVER_PORT = 8964
