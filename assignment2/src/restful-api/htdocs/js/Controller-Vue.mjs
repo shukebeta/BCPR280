@@ -48,7 +48,7 @@ new Vue({
     },
     calculate() {
       let self = this
-      axios.get('http://localhost:8964/get-all', {params:{
+      axios.get('/api/get-all', {params:{
         listx: self.filedata[0].dataList.join(','),
         listy: self.filedata[1].dataList.join(',')
       }}).then(function(response) {

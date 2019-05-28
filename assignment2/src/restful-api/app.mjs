@@ -10,7 +10,7 @@ let getValidList = function(listStr) {
   return listStr.trim(', ').split(/[, ]+/).map((num) => +num)
 }
 
-app.get('/get-correlation', (req, res) => {
+app.get('/api/get-correlation', (req, res) => {
 
   let listx = getValidList(req.query.listx)
   let listy = getValidList(req.query.listy)
@@ -28,7 +28,7 @@ app.get('/get-correlation', (req, res) => {
   }
 })
 
-app.get('/get-linear-regression', (req, res) => {
+app.get('/api/get-linear-regression', (req, res) => {
 
   let listx = getValidList(req.query.listx)
   let listy = getValidList(req.query.listy)
@@ -48,7 +48,7 @@ app.get('/get-linear-regression', (req, res) => {
   }
 })
 
-app.get('/get-all', (req, res) => {
+app.get('/api/get-all', (req, res) => {
 
   let listx = getValidList(req.query.listx)
   let listy = getValidList(req.query.listy)
