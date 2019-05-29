@@ -3,23 +3,23 @@ class MathLib {
 
   getSum(numList) {
     let sum = 0
-    for(let i=0; i < numList.length; i++) {
-      sum += numList[i]
+    for(let num of numList) {
+      sum += num
     }
     return sum
   }
 
   getSquareSum(numList) {
     let sum = 0
-    for(let i=0; i < numList.length; i++) {
-      sum += numList[i] * numList[i]
+    for(let num of numList) {
+      sum += num * num
     }
     return sum
   }
   
   getProductSum(x, y) {
     let sum = 0
-    for(let i=0; i < x.length; i++) {
+    for(let i = 0; i < x.length; i++) {
       sum += x[i] * y[i]
     }
     return sum
