@@ -22,57 +22,67 @@ to start the "http" package version. The function of two approach is identical, 
 
     Press Ctrl + C 
     
-## Available API
+## API List
 
-### /api/get-correlation
+### get-correlation
 
-- request method: **GET/POST**
-- must have **parameters**:
-  - listx: comma or space separated number list, such as "83, 116, 186, 81, 114"
-  - listy: comma or space separated number list, such as "11.2, 9.3, 21.6, 6.9, 10.2"
+- **URL:** /api/get-correlation
+- **Method:** POST
+- **Params:**
+  - **required:**
+    - listx: comma or space separated number list, such as "83,116,186,81,114"
+    - listy: comma or space separated number list, such as "11.2,9.3,21.6,6.9,10.2"
 - **good** parameter show be:
-  - the count of numbers from listx and list y must be equal
-  - the count of numbers should greater than 0
-- **return** value: a JSON string will be returned.
-  - satisfied return: `{
-       "success": "true",
-       "correlation": 0.8312640410860297
-   }`
-  - unsatisfied return: `{
-      "success": "false",
-      "message": "invalid listx or listy"
-  }`
+  - the number count in listx and listy must be equal
+  - the number count should greater than 0
+- **Success Response:** `{
+    "success": "true",
+    "correlation": 0.8312640410860297
+}`
+- **Error Response:** `{
+    "success": "false",
+    "message": "invalid listx or listy"
+}`
  
-### /api/get-linear-regression
+### get-linear-regression
 
-
-- request method: **GET/POST**
-- must have **parameters**:
-  - listx: comma or space separated number list, such as "83, 116, 186, 81, 114"
-  - listy: comma or space separated number list, such as "11.2, 9.3, 21.6, 6.9, 10.2"
+- **URL:** /api/get-linear-regression
+- **Method:** POST
+- **Params:**
+  - **required:**
+    - listx: comma or space separated number list, such as "83,116,186,81,114"
+    - listy: comma or space separated number list, such as "11.2,9.3,21.6,6.9,10.2"
 - **good** parameter show be:
-  - the count of numbers from listx and list y must be equal
-  - the count of numbers should greater than 0
-- **return** value: a JSON string will be returned.
-  - satisfied return: `{"success":"true","beta0":-2.3104571903574396,"beta1":0.12198669991687448}`
-  - unsatisfied return: `{
-      "success": "false",
-      "message": "invalid listx or listy"
-  }`
- 
-### /api/get-all
+  - the number count in listx and listy must be equal
+  - the number count should greater than 0
+- **Success Response:** `{
+    "success":"true",
+    "beta0":-2.3104571903574396,
+    "beta1":0.12198669991687448
+}`
+- **Error Response:** `{
+    "success": "false",
+    "message": "invalid listx or listy"
+}`
 
+### get-all
 
-- request method: **GET/POST**
-- must have **parameters**:
-  - listx: comma or space separated number list, such as "83, 116, 186, 81, 114"
-  - listy: comma or space separated number list, such as "11.2, 9.3, 21.6, 6.9, 10.2"
+- **URL:** /api/get-all
+- **Method:** POST
+- **Params:**
+  - **required**:
+    - listx: comma or space separated number list, such as "83,116,186,81,114"
+    - listy: comma or space separated number list, such as "11.2,9.3,21.6,6.9,10.2"
 - **good** parameter show be:
-  - the count of numbers from listx and list y must be equal
-  - the count of numbers should greater than 0
-- **return** value: a JSON string will be returned.
-  - satisfied return: `{"success":"true","correlation": 0.8312640410860297,"beta0":-2.3104571903574396,"beta1":0.12198669991687448}`
-  - unsatisfied return: `{
-      "success": "false",
-      "message": "invalid listx or listy"
-  }
+  - the number count in listx and listy must be equal
+  - the number count should greater than 0
+- **Success Response:** `{
+    "success":"true",
+    "correlation": 0.8312640410860297,
+    "beta0":-2.3104571903574396,
+    "beta1":0.12198669991687448
+}`
+- **Error Response:** `{
+    "success": "false",
+    "message": "invalid listx or listy"
+}`

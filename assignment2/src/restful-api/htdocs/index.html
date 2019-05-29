@@ -9,6 +9,8 @@
 <body>
 <div id="app" class="container-fluid">
     <label><input type="checkbox" v-on:click="bootstrapOn"> Bootstrap on</label>
+    <h1>Calculate Correlation & Linear Regression</h1>
+
     <p v-if="filedata.length < 2">
         <label class="abutton btn btn-primary" role="alert">
             Select {{2 - filedata.length}} Data File

@@ -96,6 +96,7 @@ class FileUploader extends React.Component {
     let availableFileCount = 2 - this.state.uploadedFileCount
     return (
       <div className="container-fluid">
+        <h1>Calculate Correlation & Linear Regression</h1>
         <label><input type="checkbox" onClick={this.bootstrapOn} /> Bootstrap on</label>
         <p>
         {

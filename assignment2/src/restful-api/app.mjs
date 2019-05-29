@@ -15,7 +15,7 @@ app.get('/api/get-correlation', (req, res) => {
   let listx = getValidList(req.query.listx)
   let listy = getValidList(req.query.listy)
 
-  if (listx.length && listy.length && listx.length == listy.length) {
+  if (listx.length && listy.length && listx.length === listy.length) {
     res.status(200).send({
       success: 'true',
       correlation: (new Correlation(listx, listy)).getSquareR(),
@@ -34,7 +34,7 @@ app.get('/api/get-linear-regression', (req, res) => {
   let listy = getValidList(req.query.listy)
   let lr = new LinearRegression(listx, listy)
 
-  if (listx.length && listy.length && listx.length == listy.length) {
+  if (listx.length && listy.length && listx.length === listy.length) {
     res.status(200).send({
       success: 'true',
       beta0: lr.getBeta0(),
@@ -54,7 +54,7 @@ app.get('/api/get-all', (req, res) => {
   let listy = getValidList(req.query.listy)
   let lr = new LinearRegression(listx, listy)
 
-  if (listx.length && listy.length && listx.length == listy.length) {
+  if (listx.length && listy.length && listx.length === listy.length) {
     res.status(200).send({
       success: 'true',
       correlation: (new Correlation(listx, listy)).getSquareR(),
