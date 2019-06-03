@@ -43,6 +43,10 @@ class ReadFileAndCalculate {
             console.log(chalk.green('Correlation:'), chalk.white(result.correlation))
             console.log(chalk.green('Linear Regression beta 0:'), chalk.white(result.beta0))
             console.log(chalk.green('Linear Regression beta 1:'), chalk.white(result.beta1, "\n"))
+            fs.writeFile("result.txt", JSON.stringify(result), (err) => {
+              if (err) console.log(err);
+              console.log("Successfully written the result to file: ./result.txt")
+            })
             if (typeof callback !== 'undefined') {
               callback()
             }
