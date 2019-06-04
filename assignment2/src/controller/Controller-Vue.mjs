@@ -22,7 +22,8 @@ new Vue({
           }
         }
 
-        const reader = new FileReader();
+        const reader = new FileReader()
+        // bind onload event listener
         reader.onload = (event) => {
           let data = event.target.result.trim().split(/[\r\n \t]+/);
           let dataList = []
@@ -35,6 +36,7 @@ new Vue({
 
           this.filedata.push({fileName: file.name, dataList: dataList, fileId: Math.random().toString()})
         }
+        // read file
         reader.readAsText(file);
       })
     },
