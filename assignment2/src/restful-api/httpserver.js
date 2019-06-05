@@ -69,6 +69,7 @@ class HttpServer {
         } else {
           HttpServer.writeResponseHeader(response, 500)
           HttpServer.writeData(response, "unsupported request type:" + request.method)
+          response.end()
         }
       } else { // process file request
         // Read the requested file content from file system

@@ -28,6 +28,7 @@ to start the "http" package version. The function of two approach is identical, 
 
 - **URL:** /api/get-correlation
 - **Method:** POST
+- **Conter-type**: 'application/x-www-form-urlencoded'
 - **Params:**
   - **required:**
     - listx: comma or space separated number list, such as "83,116,186,81,114"
@@ -48,6 +49,7 @@ to start the "http" package version. The function of two approach is identical, 
 
 - **URL:** /api/get-linear-regression
 - **Method:** POST
+- **Conter-type**: 'application/x-www-form-urlencoded'
 - **Params:**
   - **required:**
     - listx: comma or space separated number list, such as "83,116,186,81,114"
@@ -69,6 +71,7 @@ to start the "http" package version. The function of two approach is identical, 
 
 - **URL:** /api/get-all
 - **Method:** POST
+- **Conter-type**: 'application/x-www-form-urlencoded'
 - **Params:**
   - **required**:
     - listx: comma or space separated number list, such as "83,116,186,81,114"
@@ -86,3 +89,7 @@ to start the "http" package version. The function of two approach is identical, 
     "success": "false",
     "message": "invalid listx or listy"
 }`
+
+### Notes
+
+These APIs also support GET request type and it is just for testing purpose. Don't use GET in product environments, if you have a big amount of data to submit, using GET method may cause unexpected data truncating and you may fail to get a correct answer.

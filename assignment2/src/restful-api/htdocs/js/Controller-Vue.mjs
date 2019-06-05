@@ -48,10 +48,14 @@ new Vue({
     },
     calculate() {
       let self = this
-      axios.get('/api/get-all', {params:{
+      axios.post('/api/get-all', {
         listx: self.filedata[0].dataList.join(','),
         listy: self.filedata[1].dataList.join(',')
-      }}).then(function(response) {
+      }, {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        }
+      }).then(function(response) {
         self.result = [{
           file1: self.filedata[0].fileName,
           file2: self.filedata[1].fileName,
