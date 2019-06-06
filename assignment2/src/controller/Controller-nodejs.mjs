@@ -1,5 +1,12 @@
 #!/usr/bin/env node --experimental-modules --no-warnings
 
+/**
+ * Don't look this file. I wrote this command line interface for task 5: provide a user interface with Nodejs before
+ * teacher clarify its truly requirements. The real requirements is asking us to write a http server. I keep this code
+ * here just for fun. You really can use nodejs write a command line interface for some specific tasks!
+ */
+
+
 import {ReadFileAndCalculate} from "../bin/read-data-file-and-calculate.mjs"
 import fs from 'fs'
 
