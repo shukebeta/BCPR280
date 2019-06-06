@@ -1,19 +1,21 @@
 {
   "name": "restful-api",
   "version": "1.0.0",
-  "description": "a restful api service for BCPR280 assignment 2",
-  "main": "app.mjs",
+  "description": "a http server using http module for static files and correlation & linear regression restful api",
+  "main": "httpserver.mjs",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node_modules/.bin/nodemon app.mjs --exec node --experimental-modules --no-warnings --"
+    "start": "node --experimental-modules --no-warnings ./httpserver.mjs",
+    "test": "node --experimental-modules --no-warnings ./httpserver.mjs"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/shukebeta/BCPR280.git"
   },
   "keywords": [
+    "http",
+    "server",
     "restful",
-    "service"
+    "api"
   ],
   "author": "Zhong Wei",
   "license": "ISC",
@@ -22,17 +24,7 @@
   },
   "homepage": "https://github.com/shukebeta/BCPR280#readme",
   "dependencies": {
-    "@babel/cli": "^7.0.0",
-    "@babel/node": "^7.2.2",
-    "babel-core": "^7.0.0-bridge.0",
-    "body-parser": "^1.19.0",
-    "braces": "^2.3.2",
-    "express": "^4.16.4"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.4.4",
-    "@babel/preset-env": "^7.4.4",
-    "nodemon": "^1.19.0"
-  },
-  "type": "module"
+    "http": "0.0.0",
+    "mime": "^2.4.3"
+  }
 }

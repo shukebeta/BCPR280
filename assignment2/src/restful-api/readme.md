@@ -6,15 +6,13 @@ Once you started this serivce, it is running on port： **8964**.
 
 ## Start service
 
-In fact, I have written two service for the restful api task. The first approach used the "Express" package, the other approach used the http package, which Dr Luofeng Xu told us that we should use it.
-
-Using 
-
+Using
+    
     npm start 
-    
-to start the "Express" version, or using
-    
-    ./httpserver.js
+    OR
+    npm test
+    OR 
+    node --experimental-modules httpserver.mjs
     
 to start the "http" package version. The function of two approach is identical, so the User Interface is the same one, which is located in the htdocs folder.
     
@@ -24,7 +22,7 @@ to start the "http" package version. The function of two approach is identical, 
     
 ## API List
 
-### get-correlation
+### /api/get-correlation
 
 - **URL:** /api/get-correlation
 - **Method:** POST
@@ -45,7 +43,7 @@ to start the "http" package version. The function of two approach is identical, 
     "message": "invalid listx or listy"
 }`
  
-### get-linear-regression
+### /api/get-linear-regression
 
 - **URL:** /api/get-linear-regression
 - **Method:** POST
@@ -67,7 +65,7 @@ to start the "http" package version. The function of two approach is identical, 
     "message": "invalid listx or listy"
 }`
 
-### get-all
+### /api/get-all
 
 - **URL:** /api/get-all
 - **Method:** POST

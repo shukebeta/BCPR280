@@ -9,7 +9,7 @@ import url from 'url'
 import path from 'path'
 import mime from 'mime'
 import qs from 'querystring'
-import ApiRequest from './ApiRequest.js'
+import ApiRequest from './ApiRequest.mjs'
 
 const WWW_FILE_DIR = 'htdocs/'
 const SERVER_PORT = 8964
