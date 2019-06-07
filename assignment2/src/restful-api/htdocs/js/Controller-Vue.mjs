@@ -48,10 +48,12 @@ new Vue({
     },
     calculate() {
       let self = this
-      axios.post('/api/get-all', {
+      let data = {
         listx: self.filedata[0].dataList.join(','),
         listy: self.filedata[1].dataList.join(',')
-      }, {
+      }
+      data = Object.keys(data).map((k) => encodeURIComponent(k) + "=" + encodeURIComponent(data[k])).join('&')
+      axios.post('/api/get-all', data, {
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded'
         }

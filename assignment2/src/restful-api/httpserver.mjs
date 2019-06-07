@@ -108,7 +108,7 @@ class HttpServer {
   static writeResponseHeader(response_object, response_code, response_header) {
     if (typeof response_header === 'string') {
       response_header = {
-        'Content-type': mime.lookup(response_header)
+        'Content-type': mime.getType(response_header)
       }
     }
 
