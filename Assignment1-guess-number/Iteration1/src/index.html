@@ -15,12 +15,13 @@
     </p>
 
     <div v-if="secretNumber >= 0">
-    <p>I have got a number in mind which is between 0 and 99, what is it? </p>
-    <p id="prompt-message" v-if="promptMessage != ''">{{ promptMessage }}</p>
-    <p><input 
-      v-model="yourCurrentGuess" 
-      v-on:keyup.enter="submitYourInput" 
-      ref="input" type="text" size="40" placeholder="Please input your guess then press enter"></p>
+      <p>I have got a number in mind which is between 0 and 99, what is it? </p>
+      <p id="prompt-message" v-if="promptMessage != ''">{{ promptMessage }}</p>
+      <p>You are guessing <span style="font-size: x-large">{{yourCurrentGuess}}</span></p>
+      <p><input
+        v-model="yourCurrentGuess"
+        v-on:keyup.enter="submitYourInput"
+        ref="input" type="text" size="40" placeholder="Please input your guess then press enter"></p>
     </div>
     <!-- Show player guess history -->
     <ul v-if="guessHistory.length">
