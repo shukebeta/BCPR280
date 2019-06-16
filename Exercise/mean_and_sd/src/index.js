@@ -66,4 +66,4 @@ let app = new Vue({
       return this.result = this.filedata
     }
   }
-});
+})
